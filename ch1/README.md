@@ -8,7 +8,7 @@
 * 实践教材P9-11 Spring入门程序。
 
 ## 源代码
-** 1.TestDao **
+**1.TestDao**
 
 ```java
 package dao;
@@ -18,7 +18,7 @@ public interface TestDao {
 }
 
 ```
-** 2.TestDaoImple **
+**2.TestDaoImple**
 
 ```java
 package dao.impl;
@@ -34,7 +34,7 @@ public class TestDaoImpl implements TestDao {
 
 ```
 
-** 3.Test **
+**3.Test**
 
 ```java
 package test;
@@ -56,7 +56,7 @@ public class Test {
 }
 ```
 
-** 4.applicationContext.xml **
+**4.applicationContext.xml**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
