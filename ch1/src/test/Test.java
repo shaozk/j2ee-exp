@@ -1,17 +1,27 @@
+/*
+ * Name: Test
+ * Data: 2021/3/12
+ * Author: <https://www.github.com/shaozk>
+ */
+
 package test;
 
+import dao.TestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import dao.TestDao;
 
+/**
+ * @author shaozk
+ * @Description: æµ‹è¯•
+ */
 public class Test {
-	public static void main(String[] args) {
-		// ³õÊ¼»¯SpringÈİÆ÷ApplicationContext£¬¼ÓÔØÅäÖÃÎÄ¼ş
-		ApplicationContext app = new ClassPathXmlApplicationContext("applicationContext.xml");
-		
-		// Í¨¹ıÈİÆ÷»ñÈ¡testÊµÀı
-		TestDao testDao = (TestDao) app.getBean("test");	// testÎªÅäÖÃÎÄ¼şÖĞµÄid
-		testDao.sayHello();
-	}
+    public static void main(String[] args) {
+        // åˆå§‹åŒ–Springå®¹å™¨ApplicationContextï¼ŒåŠ è½½é…ç½®æ–‡ä»¶
+        ApplicationContext app = new ClassPathXmlApplicationContext("applicationContest.xml");
+
+        // é€šè¿‡å®¹å™¨è·å–testå®ä¾‹
+        TestDao testDao = (TestDao) app.getBean("test");	// testä¸ºé…ç½®æ–‡ä»¶ä¸­çš„id
+        testDao.sayHello();
+    }
 
 }

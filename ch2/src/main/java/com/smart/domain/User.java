@@ -1,9 +1,17 @@
+/*
+ * Date: 2021/3/12
+ * Author: <https://www.github.com/shaozk>
+ */
+
 package com.smart.domain;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class User implements Serializable{
+/**
+ * @author shaozk
+ * @Description: 用户bean
+ */
+public class User {
     private int userId;
 
     private String userName;

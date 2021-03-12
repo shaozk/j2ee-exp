@@ -1,15 +1,22 @@
-package com.smart.service;
+/*
+ * Date: 2021/3/12
+ * Author: <https://www.github.com/shaozk>
+ */
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+package com.smart.service;
 
 import com.smart.dao.LoginLogDao;
 import com.smart.dao.UserDao;
 import com.smart.domain.LoginLog;
 import com.smart.domain.User;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+/**
+ * @author shaozk
+ * @Description: TODO
+ */
 @Service
 public class UserService {
     private UserDao userDao;

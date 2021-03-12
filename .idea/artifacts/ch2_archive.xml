@@ -1,0 +1,15 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ch2 archive">
+    <output-path>$PROJECT_DIR$/classes/artifacts/ch2_archive</output-path>
+    <root id="archive" name="ch2 archive.war">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ch2/src/main/webapp/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="directory" name="WEB-INF">
+        <element id="module-output" name="ch2" />
+        <element id="artifact" artifact-name="ch2:war" />
+      </element>
+      <element id="javaee-facet-resources" facet="ch2/web/Web" />
+    </root>
+  </artifact>
+</component>

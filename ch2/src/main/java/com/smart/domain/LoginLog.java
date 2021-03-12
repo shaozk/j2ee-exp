@@ -1,8 +1,17 @@
+/*
+ * Date: 2021/3/12
+ * Author: <https://www.github.com/shaozk>
+ */
+
 package com.smart.domain;
-import java.io.Serializable;
+
 import java.util.Date;
 
-public class LoginLog implements Serializable{
+/**
+ * @author shaozk
+ * @Description: TODO
+ */
+public class LoginLog {
     private int loginLogId;
 
     private int userId;
@@ -42,5 +51,4 @@ public class LoginLog implements Serializable{
     public void setUserId(int userId) {
         this.userId = userId;
     }
-
 }

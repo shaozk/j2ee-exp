@@ -1,3 +1,8 @@
+/*
+ * Date: 2021/3/12
+ * Author: <https://www.github.com/shaozk>
+ */
+
 package com.smart.dao;
 
 import com.smart.domain.User;
@@ -9,7 +14,10 @@ import org.springframework.stereotype.Repository;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
+/**
+ * @author shaozk
+ * @Description: TODO
+ */
 @Repository
 public class UserDao {
     private JdbcTemplate jdbcTemplate;

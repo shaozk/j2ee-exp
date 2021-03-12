@@ -1,5 +1,14 @@
+/*
+ * Date: 2021/3/12
+ * Author: <https://www.github.com/shaozk>
+ */
+
 package com.smart.web;
 
+/**
+ * @author shaozk
+ * @Description: TODO
+ */
 public class LoginCommand {
     private String userName;
 
@@ -21,4 +30,3 @@ public class LoginCommand {
         this.userName = userName;
     }
 }
-

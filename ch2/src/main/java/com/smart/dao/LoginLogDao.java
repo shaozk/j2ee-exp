@@ -1,3 +1,8 @@
+/*
+ * Date: 2021/3/12
+ * Author: <https://www.github.com/shaozk>
+ */
+
 package com.smart.dao;
 
 import com.smart.domain.LoginLog;
@@ -5,7 +10,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-
+/**
+ * @author shaozk
+ * @Description: TODO
+ */
 @Repository
 public class LoginLogDao {
     private JdbcTemplate jdbcTemplate;
