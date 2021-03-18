@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--构造方法实例化Bean-->
+    <bean id="constructorInstance" class="instance.BeanClass" scope="prototype"/>
+
+    <!--静态工厂方法实例化Bean，CreateInstance为静态工厂类BeanStaticFactory中的静态方法-->
+    <bean id="staticFactoryInstance" class="instance.BeanStaticFactory" factory-method="createInstance"/>
+
+    <!--配置工厂-->
+    <bean id="myFactory" class="instance.BeanInstanceFactory" />
+    <!--使用factory-bean属性指定配置工厂，使用factory-method属性指定使用工厂中的哪个方法实例化Bean-->
+    <bean id="instanceFactory" factory-bean="myFactory" factory-method="createBeanClassInstance"/>
+
+    <!--配置Bean，使用init-method属性指定初始化方法，使用destroy-method属性指定销毁方法-->
+    <bean id="beanLife" class="life.BeanLife" init-method="initMyself" destroy-method="destroyMyself"/>
+
+    <!--使用构造方法注入方式配置ComplexUser实例user1-->
+    <bean id="user1" class="assemble.ComplexUser">
+        <constructor-arg index="0" value="shaozk1"/>
+        <constructor-arg index="1">
+            <list>
+                <value>唱歌</value>
+                <value>爬山</value>
+                <value>跳舞</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg index="2">
+            <map>
+                <entry key="dalian" value="大连"/>
+                <entry key="beijing" value="北京"/>
+                <entry key="shanghai" value="上海"/>
+            </map>
+        </constructor-arg>
+        <constructor-arg index="3">
+            <set>
+                <value>shaozk101</value>
+                <value>shaozk102</value>
+                <value>shaozk103</value>
+            </set>
+        </constructor-arg>
+        <constructor-arg index="4">
+            <array>
+                <value>aaaaa</value>
+                <value>bbbbb</value>
+            </array>
+        </constructor-arg>
+    </bean>
+
+    <!--使用属性的setter方法注入方式配置ComplexUser实例user2-->
+    <bean id="user2" class="assemble.ComplexUser">
+        <property name="uname" value="shaozk2"/>
+        <property name="hobbyList">
+            <list>
+                <value>看书</value>
+                <value>敲代码</value>
+            </list>
+        </property>
+        <property name="residenceMap">
+            <map>
+                <entry key="shenzhen" value="深圳"/>
+                <entry key="guangzhou" value="广州"/>
+                <entry key="changsha" value="长沙"/>
+            </map>
+        </property>
+        <property name="aliasSet">
+            <set>
+                <value>shaozk104</value>
+                <value>shaozk105</value>
+                <value>shaozk106</value>
+            </set>
+        </property>
+        <property name="array">
+            <array>
+                <value>ccccc</value>
+                <value>ddddd</value>
+            </array>
+        </property>
+    </bean>
+
+
+</beans>
