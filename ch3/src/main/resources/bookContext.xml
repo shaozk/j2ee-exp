@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--构造方法注入Book-->
+    <bean id="bookConstructor" class="book.pojo.Book">
+        <constructor-arg index="0" value="白鹿原"/>
+        <constructor-arg index="1" value="清华大学出版社"/>
+        <constructor-arg index="2" value="35"/>
+        <constructor-arg index="3" value="陈忠实"/>
+    </bean>
+
+    <!--Setter方式注入Book-->
+    <bean id="bookSetter" class="book.pojo.Book">
+        <property name="name" value="Java EE框架整合开发入门到实战"/>
+        <property name="author" value="陈恒 张立杰"/>
+        <property name="press" value="清华大学出版社"/>
+        <property name="price" value="68.8"/>
+    </bean>
+
+    <!-- 配置DAO层（实例化BookDao）-->
+    <bean id="bookDAO" class="book.dao.BookDaoImpl"/>
+
+    <!-- 配置Service层（Setter方式）-->
+    <bean id="bookService" class="book.service.BookServiceImpl">
+        <property name="bookDao" ref="bookDAO"/>
+    </bean>
+
+    <!--将TestBook所依赖的BookService对象注入到TestDao类中（Setter方式）-->
+    <bean id="testBook" class="book.TestBook">
+        <property name="bookService" ref="bookService"/>
+    </bean>
+
+
+
+</beans>

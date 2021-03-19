@@ -20,6 +20,9 @@
         <fileset id="fileset2" name="AnnotationContext" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/annotationContext.xml</file>
         </fileset>
+        <fileset id="fileset3" name="BookContext" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/bookContext.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>
