@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+        
+    <!--定义目标对象，被切的  -->
+    <bean id="testDao" class="dao.TestDaoImpl"/>
+    <!--定义切面，切别人的  -->
+    <bean id="myAspect" class="aspectj.xml.MyAspect"/>
+    
+    <!--AOP配置-->
+    <aop:config>
+    <!-- 配置切面 -->
+    <aop:aspect ref="myAspect"> 
+    
+    	<!--配置切入点，通知增强哪些方法  -->
+    	<aop:pointcut expression="execution(* dao.*.*(..))" id="pointcut"/>
+    	
+    	<aop:before method="before" pointcut-ref="pointcut"/>
+    </aop:aspect> 
+    	
+    </aop:config>
+</beans>
