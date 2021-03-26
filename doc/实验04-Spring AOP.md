@@ -407,8 +407,8 @@ public class AnnTest {
 
 ## 实验截图
 * 基于XML的声明式AspectJ
-  ![实验04-基于XML的声明式AspectJ](../images/实验04-基于XML的声明式AspectJ%5B测试%5D.png)
+  ![实验04-基于XML的声明式AspectJ](../images/实验04-基于XML的声明式AspectJ.png)
   
 * 基于注解的声明式AspectJ
-  ![实验04-基于注解的声明式AspectJ](../images/实验04-基于注解的声明式AspectJ%5B测试%5D.png)
+  ![实验04-基于注解的声明式AspectJ](../images/实验04-基于注解的声明式AspectJ.png)
   
