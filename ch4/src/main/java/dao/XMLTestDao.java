@@ -9,8 +9,6 @@ package dao;
  * @author shaozk
  * @Description: TODO
  */
-public interface TestDao {
-    public void save();
-    public void modify();
-    public void delete();
+public interface XMLTestDao {
+    public void save(String action);
 }

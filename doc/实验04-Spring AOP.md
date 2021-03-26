@@ -110,8 +110,13 @@
 
 ```
 
-**dao.TestDao**
+**dao.XMLTestDao.java**
 ```java
+/*
+ * Date: 2021/3/26
+ * Author: <https://www.github.com/shaozk>
+ */
+
 /*
  * Date: 2021/3/26
  * Author: <https://www.github.com/shaozk>
@@ -123,16 +128,20 @@ package dao;
  * @author shaozk
  * @Description: TODO
  */
-public interface TestDao {
-    public void save();
-    public void modify();
-    public void delete();
+public interface XMLTestDao {
+  public void save(String action);
 }
 
 
+
 ```
-**dao.TestDaoImpl**
+**dao.XMLTestDaoImpl.java**
 ```java
+/*
+ * Date: 2021/3/26
+ * Author: <https://www.github.com/shaozk>
+ */
+
 /*
  * Date: 2021/3/26
  * Author: <https://www.github.com/shaozk>
@@ -140,34 +149,25 @@ public interface TestDao {
 
 package dao;
 
-import org.springframework.stereotype.Repository;
-
 /**
  * @author shaozk
  * @Description: TODO
  */
-@Repository("testDaoImpl")
-public class TestDaoImpl implements TestDao {
 
-    @Override
-    public void save() {
-        System.out.println("保存");
-    }
+public class XMLTestDaoImpl implements XMLTestDao {
 
-    @Override
-    public void modify() {
-        System.out.println("修改");
-    }
+  @Override
+  public void save(String action) {
+    System.out.println("保存");
+  }
 
-    @Override
-    public void delete() {
-        System.out.println("删除");
-    }
+
 }
+
 
 ```
 
-**aspect.xml.MyAspect**
+**aspect.xml.XmlAspect.java**
 ```java
 /*
  * Date: 2021/3/26
@@ -177,57 +177,35 @@ public class TestDaoImpl implements TestDao {
 package aspect.xml;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
+
+import static java.lang.System.exit;
 
 /**
  * @author shaozk
  * @Description: 切面类
  */
-public class MyAspect {
-    // 前置通知
-    public void myBefore(JoinPoint joinPoint) {
-        System.out.print("前置通知:模拟执行权限....");
-        System.out.print("目标类是:" + joinPoint.getTarget());
-        System.out.print(",被织入增强处理的目标方法为:" + joinPoint.getSignature().getName());
-        System.out.println();
-    }
+public class XmlAspect {
+  // 前置通知
+  public void before(JoinPoint joinPoint) {
+    System.out.println("基于XML的声明式AspectJ");
 
-    // 后置通知
-    public void myAfterReturning(JoinPoint joinPoint) {
-        System.out.print("后置通知:模拟记录日志....");
-        System.out.print(",被织入增强处理的目标方法为:" + joinPoint.getSignature().getName());
-        System.out.println();
-    }
-    // 环绕通知
-    /**
-     * ProceedingJoinPoint 是JoinPoint子接口，表示可以执行目标方法 1.必须是Object类型的返回值
-     * 2.必须接收一个参数，类型为ProceedingJoinPoint 3.必须throws Throwable
-     */
-    public Object myAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-        // 开始
-        System.out.println("环绕开始:执行目标方法执行之前，模拟开启事务...");
-        // 执行当前目标方法
-        Object obj = proceedingJoinPoint.proceed();
+    //获取当前请求方法的参数值
+    Object[] args = joinPoint.getArgs();
 
-        // 结束
-        System.out.println("环绕结束：执行目标方法之后，模拟关闭事务");
-        return obj;
-
+    if(args[0].toString().equals("agree")) {
+      System.out.println("请求成功！");
+    }else {
+      System.out.println("请求失败，拒绝访问！");
+      exit(-1);
     }
-    // 异常通知
-    public void myAfterThrowing(JoinPoint joinPoint, Throwable e) {
-        System.out.println("异常通知" + "出错了" + e.getMessage());
-    }
-    // 最终通知
-    public void myAfter() {
-        System.out.println("最终通知:模拟方法结束后释放资源...");
-    }
+  }
 
 }
 
+
 ```
 
-**aspect.xml.XMLAspectJTest**
+**aspect.xml.XmlTest.java**
 ```java
 /*
  * Date: 2021/3/26
@@ -236,7 +214,7 @@ public class MyAspect {
 
 package aspect.xml;
 
-import dynamic.jdk.TestDao;
+import dao.XMLTestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -244,13 +222,14 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author shaozk
  * @Description: TODO
  */
-public class XMLAspectJTest {
-    public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xmlAspectContext.xml");
-        TestDao advice = (TestDao) applicationContext.getBean("testDao");
-        // 执行方法
-        advice.save();
-    }
+public class XmlTest {
+  public static void main(String[] args) {
+    ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xmlAspectContext.xml");
+    XMLTestDao advice = (XMLTestDao) applicationContext.getBean("testDao");
+    // 执行方法
+    advice.save("agree");
+    advice.save("false");
+  }
 }
 
 
@@ -268,105 +247,109 @@ public class XMLAspectJTest {
        https://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--spring-beans-4.3这里的4.3是指明版本号 -->
     <!-- 1.目标类 -->
-    <bean id="testDao" class="dynamic.jdk.TestDaoImpl"/>
+    <bean id="testDao" class="dao.XMLTestDaoImpl"/>
     <!-- 2.切面 -->
-    <bean id="myAspect" class="aspect.xml.MyAspect"/>
+    <bean id="myAspect" class="aspect.xml.XmlAspect"/>
     <!-- 3.Aop编程 -->
     <aop:config>
         <!-- 配置切面 -->
         <aop:aspect ref="myAspect">
             <!-- 3.1配置切入点，通知最后增强那些方法 ,对所有的类，里面所有的方法进行增强 -->
             <aop:pointcut
-                    expression="execution(* dynamic.jdk.*.*(..))" id="myPointCut" />
-            <!-- 3.2管理通知Advice和切入点 -->
-            <!-- 3.2.1前置通知 -->
-            <aop:before method="myBefore" pointcut-ref="myPointCut" />
-            <!-- 3.2.1后置通知,在方法返回之后执行，就可以获得返回值 returning属性：用于设置后置通知的第二个参数名称，类型是Object -->
-            <aop:after-returning method="myAfterReturning" pointcut-ref="myPointCut" />
-            <!-- 3.2.3环绕通知 -->
-            <aop:around method="myAround" pointcut-ref="myPointCut" />
-            <!-- 3.2.4抛出通知：用于处理程序发生的异常 -->
-            <!-- 如果程序没有异常，将不会执行增强 -->
-            <!-- throwing 属性：用于设置通知第二个参数的名称，类型为Throwable -->
-            <aop:after-throwing method="myAfterThrowing" pointcut-ref="myPointCut" throwing="e" />
-            <!-- 3.2.5最终通知：无论程序发生任何事情，都将执行 -->
-            <aop:after method="myAfter" pointcut-ref="myPointCut" />
+                    expression="execution(* dao.XMLTestDaoImpl.*(..))" id="myPointCut" />
+            <!-- 管理通知Advice和切入点 -->
+            <!-- 前置通知 -->
+            <aop:before method="before" pointcut-ref="myPointCut" />
+
         </aop:aspect>
     </aop:config>
 </beans>
 ```
 
-**aspect.annotation.Aspect**
+**dao.AnnTestDao.java**
 ```java
-package aspect.annotation;
+/*
+ * Date: 2021/3/26
+ * Author: <https://www.github.com/shaozk>
+ */
 
+package dao;
+
+/**
+ * @author shaozk
+ * @Description: 注解dao
+ */
+public interface ANNTestDao {
+  public void save(String action);
+}
+
+
+
+```
+**dao.AnnTestDaoImpl.java**
+```java
+/*
+ * Date: 2021/3/26
+ * Author: <https://www.github.com/shaozk>
+ */
+
+package dao;
+
+import org.springframework.stereotype.Repository;
+
+/**
+ * @author shaozk
+ * @Description: ann dao的实现类
+ */
+@Repository("testDaoImpl")
+public class AnnTestDaoImpl implements ANNTestDao{
+  @Override
+  public void save(String action) {
+    System.out.println("保存");
+  }
+}
+
+
+```
+
+**aspect.annotation.AnnAspect.java**
+```java
+/*
+ * Date: 2021/3/26
+ * Author: <https://www.github.com/shaozk>
+ */
+
+package aspect.xml;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.*;
-import org.springframework.stereotype.Component;
 
-@Aspect
-@Component
-class MyAspect {
-    //定义切入点表达式
-    @Pointcut("execution(* dao.*.*(..))")
-    private void myPointCut() {
-            //使用一个返回值为void,方法体为空的方法来命名切入点
-            }
+import static java.lang.System.exit;
 
-    @Before("myPointCut()")
+/**
+ * @author shaozk
+ * @Description: 切面类
+ */
+public class XmlAspect {
     // 前置通知
-    public void myBefore(JoinPoint joinPoint) {
-            System.out.print("前置通知:模拟执行权限....");
-            System.out.print("目标类是:" + joinPoint.getTarget());
-            System.out.print(",被织入增强处理的目标方法为:" + joinPoint.getSignature().getName());
-            System.out.println();
-            }
+    public void before(JoinPoint joinPoint) {
+        System.out.println("基于XML的声明式AspectJ");
 
-        @AfterReturning(value ="myPointCut()")
-        // 后置通知
-        public void myAfterReturning(JoinPoint joinPoint) {
-            System.out.print("后置通知:模拟记录日志....");
-            System.out.print(",被织入增强处理的目标方法为:" + joinPoint.getSignature().getName());
-            System.out.println();
+        //获取当前请求方法的参数值
+        Object[] args = joinPoint.getArgs();
+
+        if(args[0].toString().equals("agree")) {
+            System.out.println("请求成功！");
+        }else {
+            System.out.println("请求失败，拒绝访问！");
+            exit(-1);
         }
+    }
 
-        // 环绕通知
-        /**
-         *
-         * ProceedingJoinPoint 是JoinPoint子接口，表示可以执行目标方法 1.必须是Object类型的返回值
-         * 2.必须接收一个参数，类型为ProceedingJoinPoint 3.必须throws Throwable
-         */
-        @Around("myPointCut()")
-        public Object myAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
-            // 开始
-            System.out.println("环绕开始:执行目标方法执行之前，模拟开启事务...");
-            // 执行当前目标方法
-            Object obj = proceedingJoinPoint.proceed();
-
-            // 结束
-            System.out.println("环绕结束：执行目标方法之后，模拟关闭事务");
-            return obj;
-
-        }
-
-        @AfterThrowing(value = "myPointCut()",throwing="e")
-        // 异常通知
-        public void myAfterThrowing(JoinPoint joinPoint, Throwable e) {
-            System.out.println("异常通知" + "出错了" + e.getMessage());
-        }
-
-        // 最终通知
-        @After(value = "myPointCut()")
-        public void myAfter() {
-            System.out.println("最终通知:模拟方法结束后释放资源...");
-        }
 }
 
 ```
 
-**aspect.annotation.Test**
+**aspect.annotation.AnnTest.java**
 ```java
 /*
  * Date: 2021/3/26
@@ -376,8 +359,7 @@ class MyAspect {
 package aspect.annotation;
 
 
-import dao.TestDao;
-import dao.TestDaoImpl;
+import dao.ANNTestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -385,12 +367,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author shaozk
  * @Description: TODO
  */
-public class Test {
-    public static void main(String[] args) {
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("annotationAspectContext.xml");
-        TestDao dao = (TestDao) applicationContext.getBean("testDaoImpl");
-        dao.delete();
-    }
+public class AnnTest {
+  public static void main(String[] args) {
+    ApplicationContext applicationContext = new ClassPathXmlApplicationContext("annotationAspectContext.xml");
+    ANNTestDao dao = (ANNTestDao) applicationContext.getBean("testDaoImpl");
+    dao.save("agree");
+    dao.save("false");
+  }
 }
 
 
@@ -414,7 +397,6 @@ public class Test {
     <context:component-scan base-package="aspect.annotation"/>
     <context:component-scan base-package="dao"/>
 
-
     <!-- 启动基于注解的AspectJ支持 -->
     <aop:aspectj-autoproxy/>
 
@@ -425,7 +407,8 @@ public class Test {
 
 ## 实验截图
 * 基于XML的声明式AspectJ
-  ![实验04-基于XML的声明式AspectJ](../images/实验04-基于XML的声明式AspectJ.png)
+  ![实验04-基于XML的声明式AspectJ](../images/实验04-基于XML的声明式AspectJ%5B测试%5D.png)
   
 * 基于注解的声明式AspectJ
-  ![实验04-基于注解的声明式AspectJ](../images/实验04-基于注解的声明式AspectJ.png)
+  ![实验04-基于注解的声明式AspectJ](../images/实验04-基于注解的声明式AspectJ%5B测试%5D.png)
+  

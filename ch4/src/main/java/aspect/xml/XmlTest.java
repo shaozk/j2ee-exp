@@ -5,7 +5,7 @@
 
 package aspect.xml;
 
-import dynamic.jdk.TestDao;
+import dao.XMLTestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,11 +13,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author shaozk
  * @Description: TODO
  */
-public class XMLAspectJTest {
+public class XmlTest {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xmlAspectContext.xml");
-        TestDao advice = (TestDao) applicationContext.getBean("testDao");
+        XMLTestDao advice = (XMLTestDao) applicationContext.getBean("testDao");
         // 执行方法
-        advice.save();
+        advice.save("agree");
+        advice.save("false");
     }
 }

@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
         
     <!--定义目标对象，被切的  -->
-    <bean id="testDao" class="dao.TestDaoImpl"/>
+    <bean id="testDao" class="dao.XMLTestDaoImpl"/>
     <!--定义切面，切别人的  -->
     <bean id="myAspect" class="aspectj.xml.MyAspect"/>
     

@@ -6,8 +6,7 @@
 package aspect.annotation;
 
 
-import dao.TestDao;
-import dao.TestDaoImpl;
+import dao.ANNTestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,10 +14,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @author shaozk
  * @Description: TODO
  */
-public class Test {
+public class AnnTest {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("annotationAspectContext.xml");
-        TestDao dao = (TestDao) applicationContext.getBean("testDaoImpl");
-        dao.delete();
+        ANNTestDao dao = (ANNTestDao) applicationContext.getBean("testDaoImpl");
+        dao.save("agree");
+        dao.save("false");
     }
 }

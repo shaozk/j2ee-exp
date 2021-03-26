@@ -16,7 +16,4 @@
     
     <!-- 启动基于注解的AspectJ支持 -->
     <aop:aspectj-autoproxy/>
-    
-    <!-- 控制反转 -->
-    <!-- <bean id="testDao" class="dao.TestDaoImpl"/> -->
 </beans>
