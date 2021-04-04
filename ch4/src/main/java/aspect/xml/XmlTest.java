@@ -5,7 +5,7 @@
 
 package aspect.xml;
 
-import dao.XMLTestDao;
+import com.dao.XMLTestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

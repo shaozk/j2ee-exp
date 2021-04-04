@@ -3,9 +3,9 @@
  * Author <https://www.github.com/shaozk>
  */
 
-package dao.impl;
+package com.dao.impl;
 
-import dao.TestDao;
+import com.dao.TestDao;
 
 /**
  * @author shaozk

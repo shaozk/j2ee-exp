@@ -3,7 +3,7 @@
  * Author <https://www.github.com/shaozk>
  */
 
-package dao;
+package com.dao;
 
 /**
  * @author shaozk

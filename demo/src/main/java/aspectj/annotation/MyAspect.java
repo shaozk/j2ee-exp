@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class MyAspect {
 
 	//定义切入点
-	@Pointcut("execution(* dao.*.*(..))")
+	@Pointcut("execution(* com.dao.*.*(..))")
 	private void myPointCut() {
 
 	}

@@ -13,6 +13,12 @@
         <option value="$PROJECT_DIR$/demo/pom.xml" />
         <option value="$PROJECT_DIR$/ch3/pom.xml" />
         <option value="$PROJECT_DIR$/ch4/pom.xml" />
+        <option value="$PROJECT_DIR$/ch5/pom.xml" />
+        <option value="$PROJECT_DIR$/ch6/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch5_3/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch5_4/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch5_2/pom.xml" />
       </list>
     </option>
   </component>

@@ -8,7 +8,7 @@
        https://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--spring-beans-4.3这里的4.3是指明版本号 -->
     <!-- 1.目标类 -->
-    <bean id="testDao" class="dao.XMLTestDaoImpl"/>
+    <bean id="testDao" class="com.dao.XMLTestDaoImpl"/>
     <!-- 2.切面 -->
     <bean id="myAspect" class="aspect.xml.XmlAspect"/>
     <!-- 3.Aop编程 -->
@@ -17,7 +17,7 @@
         <aop:aspect ref="myAspect">
             <!-- 3.1配置切入点，通知最后增强那些方法 ,对所有的类，里面所有的方法进行增强 -->
             <aop:pointcut
-                    expression="execution(* dao.XMLTestDaoImpl.*(..))" id="myPointCut" />
+                    expression="execution(* com.dao.XMLTestDaoImpl.*(..))" id="myPointCut" />
             <!-- 管理通知Advice和切入点 -->
             <!-- 前置通知 -->
             <aop:before method="before" pointcut-ref="myPointCut" />

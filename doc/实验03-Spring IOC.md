@@ -81,14 +81,14 @@ public class Book {
 
 ```
 
-**dao.BookDao.java**
+**com.dao.BookDao.java**
 ```java
 /*
  * Date: 2021/3/19
  * Author: <https://www.github.com/shaozk>
  */
 
-package book.dao;
+package book.com.dao;
 
 import book.pojo.Book;
 
@@ -105,14 +105,14 @@ public interface BookDao {
 
 ```
 
-**dao.BookDaoImpl.java**
+**com.dao.BookDaoImpl.java**
 ```java
 /*
  * Date: 2021/3/19
  * Author: <https://www.github.com/shaozk>
  */
 
-package book.dao;
+package book.com.dao;
 
 import book.pojo.Book;
 
@@ -130,14 +130,14 @@ public class BookDaoImpl implements BookDao{
 
 ```
 
-**service.BookService.java**
+**com.service.BookService.java**
 ```java
 /*
  * Date: 2021/3/19
  * Author: <https://www.github.com/shaozk>
  */
 
-package book.service;
+package book.com.service;
 
 import book.pojo.Book;
 
@@ -152,16 +152,16 @@ public interface BookService {
 
 ```
 
-**service.BookServiceImpl.java**
+**com.service.BookServiceImpl.java**
 ```java
 /*
  * Date: 2021/3/19
  * Author: <https://www.github.com/shaozk>
  */
 
-package book.service;
+package book.com.service;
 
-import book.dao.BookDao;
+import book.com.dao.BookDao;
 import book.pojo.Book;
 
 /**
@@ -199,8 +199,8 @@ public class BookServiceImpl implements BookService{
 package book;
 
 import book.pojo.Book;
-import book.service.BookService;
-import book.service.BookServiceImpl;
+import book.com.service.BookService;
+import book.com.service.BookServiceImpl;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -263,10 +263,10 @@ public class TestBook {
     </bean>
 
     <!-- 配置DAO层（实例化BookDao）-->
-    <bean id="bookDAO" class="book.dao.BookDaoImpl"/>
+    <bean id="bookDAO" class="book.com.dao.BookDaoImpl"/>
 
     <!-- 配置Service层（Setter方式）-->
-    <bean id="bookService" class="book.service.BookServiceImpl">
+    <bean id="bookService" class="book.com.service.BookServiceImpl">
         <property name="bookDao" ref="bookDAO"/>
     </bean>
 

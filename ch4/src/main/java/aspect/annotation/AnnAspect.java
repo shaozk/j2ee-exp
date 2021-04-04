@@ -11,7 +11,7 @@ import static java.lang.System.exit;
 @Component
 class MyAspect {
     //定义切入点表达式
-    @Pointcut("execution(* dao.AnnTestDaoImpl.*(..))")
+    @Pointcut("execution(* com.dao.AnnTestDaoImpl.*(..))")
     private void myPointCut() {
         //使用一个返回值为void,方法体为空的方法来命名切入点
     }

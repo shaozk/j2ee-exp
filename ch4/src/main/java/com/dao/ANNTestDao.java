@@ -3,12 +3,12 @@
  * Author: <https://www.github.com/shaozk>
  */
 
-package dao;
+package com.dao;
 
 /**
  * @author shaozk
- * @Description: TODO
+ * @Description: 注解dao
  */
-public interface XMLTestDao {
+public interface ANNTestDao {
     public void save(String action);
 }

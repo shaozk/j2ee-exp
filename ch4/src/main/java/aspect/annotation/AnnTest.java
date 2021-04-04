@@ -6,7 +6,7 @@
 package aspect.annotation;
 
 
-import dao.ANNTestDao;
+import com.dao.ANNTestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

@@ -110,7 +110,8 @@
 
 ```
 
-**dao.XMLTestDao.java**
+**com.dao.XMLTestDao.java**
+
 ```java
 /*
  * Date: 2021/3/26
@@ -122,20 +123,21 @@
  * Author: <https://www.github.com/shaozk>
  */
 
-package dao;
+package com.dao;
 
 /**
  * @author shaozk
  * @Description: TODO
  */
 public interface XMLTestDao {
-  public void save(String action);
+    public void save(String action);
 }
 
 
 
 ```
-**dao.XMLTestDaoImpl.java**
+**com.dao.XMLTestDaoImpl.java**
+
 ```java
 /*
  * Date: 2021/3/26
@@ -147,7 +149,7 @@ public interface XMLTestDao {
  * Author: <https://www.github.com/shaozk>
  */
 
-package dao;
+package com.dao;
 
 /**
  * @author shaozk
@@ -156,10 +158,10 @@ package dao;
 
 public class XMLTestDaoImpl implements XMLTestDao {
 
-  @Override
-  public void save(String action) {
-    System.out.println("保存");
-  }
+    @Override
+    public void save(String action) {
+        System.out.println("保存");
+    }
 
 
 }
@@ -206,6 +208,7 @@ public class XmlAspect {
 ```
 
 **aspect.xml.XmlTest.java**
+
 ```java
 /*
  * Date: 2021/3/26
@@ -214,7 +217,7 @@ public class XmlAspect {
 
 package aspect.xml;
 
-import dao.XMLTestDao;
+import com.dao.XMLTestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -223,13 +226,13 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Description: TODO
  */
 public class XmlTest {
-  public static void main(String[] args) {
-    ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xmlAspectContext.xml");
-    XMLTestDao advice = (XMLTestDao) applicationContext.getBean("testDao");
-    // 执行方法
-    advice.save("agree");
-    advice.save("false");
-  }
+    public static void main(String[] args) {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("xmlAspectContext.xml");
+        XMLTestDao advice = (XMLTestDao) applicationContext.getBean("testDao");
+        // 执行方法
+        advice.save("agree");
+        advice.save("false");
+    }
 }
 
 
@@ -247,7 +250,7 @@ public class XmlTest {
        https://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--spring-beans-4.3这里的4.3是指明版本号 -->
     <!-- 1.目标类 -->
-    <bean id="testDao" class="dao.XMLTestDaoImpl"/>
+    <bean id="testDao" class="com.dao.XMLTestDaoImpl"/>
     <!-- 2.切面 -->
     <bean id="myAspect" class="aspect.xml.XmlAspect"/>
     <!-- 3.Aop编程 -->
@@ -256,7 +259,7 @@ public class XmlTest {
         <aop:aspect ref="myAspect">
             <!-- 3.1配置切入点，通知最后增强那些方法 ,对所有的类，里面所有的方法进行增强 -->
             <aop:pointcut
-                    expression="execution(* dao.XMLTestDaoImpl.*(..))" id="myPointCut" />
+                    expression="execution(* com.dao.XMLTestDaoImpl.*(..))" id="myPointCut" />
             <!-- 管理通知Advice和切入点 -->
             <!-- 前置通知 -->
             <aop:before method="before" pointcut-ref="myPointCut" />
@@ -266,34 +269,36 @@ public class XmlTest {
 </beans>
 ```
 
-**dao.AnnTestDao.java**
+**com.dao.AnnTestDao.java**
+
 ```java
 /*
  * Date: 2021/3/26
  * Author: <https://www.github.com/shaozk>
  */
 
-package dao;
+package com.dao;
 
 /**
  * @author shaozk
  * @Description: 注解dao
  */
 public interface ANNTestDao {
-  public void save(String action);
+    public void save(String action);
 }
 
 
 
 ```
-**dao.AnnTestDaoImpl.java**
+**com.dao.AnnTestDaoImpl.java**
+
 ```java
 /*
  * Date: 2021/3/26
  * Author: <https://www.github.com/shaozk>
  */
 
-package dao;
+package com.dao;
 
 import org.springframework.stereotype.Repository;
 
@@ -302,11 +307,11 @@ import org.springframework.stereotype.Repository;
  * @Description: ann dao的实现类
  */
 @Repository("testDaoImpl")
-public class AnnTestDaoImpl implements ANNTestDao{
-  @Override
-  public void save(String action) {
-    System.out.println("保存");
-  }
+public class AnnTestDaoImpl implements ANNTestDao {
+    @Override
+    public void save(String action) {
+        System.out.println("保存");
+    }
 }
 
 
@@ -350,6 +355,7 @@ public class XmlAspect {
 ```
 
 **aspect.annotation.AnnTest.java**
+
 ```java
 /*
  * Date: 2021/3/26
@@ -359,7 +365,7 @@ public class XmlAspect {
 package aspect.annotation;
 
 
-import dao.ANNTestDao;
+import com.dao.ANNTestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -368,12 +374,12 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @Description: TODO
  */
 public class AnnTest {
-  public static void main(String[] args) {
-    ApplicationContext applicationContext = new ClassPathXmlApplicationContext("annotationAspectContext.xml");
-    ANNTestDao dao = (ANNTestDao) applicationContext.getBean("testDaoImpl");
-    dao.save("agree");
-    dao.save("false");
-  }
+    public static void main(String[] args) {
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("annotationAspectContext.xml");
+        ANNTestDao com.dao = (ANNTestDao) applicationContext.getBean("testDaoImpl");
+        com.dao.save("agree");
+        com.dao.save("false");
+    }
 }
 
 
@@ -395,7 +401,7 @@ public class AnnTest {
 
     <!--指定需要扫描的包，使注解生效  -->
     <context:component-scan base-package="aspect.annotation"/>
-    <context:component-scan base-package="dao"/>
+    <context:component-scan base-package="com.dao"/>
 
     <!-- 启动基于注解的AspectJ支持 -->
     <aop:aspectj-autoproxy/>

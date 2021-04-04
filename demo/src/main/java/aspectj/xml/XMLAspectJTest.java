@@ -2,25 +2,25 @@ package aspectj.xml;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import dao.TestDao;
+import com.dao.TestDao;
 
 public class XMLAspectJTest {
 	@SuppressWarnings("resource")
 	public static void main(String[] args) {
 		try{
 		
-		//´Óxml¼ÓÔØÈÝÆ÷
+		//ï¿½ï¿½xmlï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		ApplicationContext appCon = new ClassPathXmlApplicationContext("/aspectj/xml/applicationContext.xml");
 		
-		//´ÓÈÝÆ÷ÖÐ»ñÈ¡µ½Ä¿±ê¶ÔÏó£¨±»ÇÐÀà£©
+		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð»ï¿½È¡ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ó£¨±ï¿½ï¿½ï¿½ï¿½à£©
 		TestDao testDao = (TestDao)appCon.getBean("testDao");
 		
-		//¸øÄ¿±ê¶ÔÏó·½·¨²ÎÊý´«²Î
+		//ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ó·½·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		testDao.visitdao("agree");
 		testDao.visitdao("Topus");
 		}catch(Exception e){
-            System.out.println("³öÏÖÒì³££º"+e);    //´òÓ¡Òì³£ÐÅÏ¢
-//            e.printStackTrace();            //´òÓ¡ÍêÕûµÄÒì³£ÐÅÏ¢
+            System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½"+e);    //ï¿½ï¿½Ó¡ï¿½ì³£ï¿½ï¿½Ï¢
+//            e.printStackTrace();            //ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½Ï¢
 	}
 }
 }

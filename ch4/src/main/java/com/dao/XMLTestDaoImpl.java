@@ -3,18 +3,19 @@
  * Author: <https://www.github.com/shaozk>
  */
 
-package dao;
-
-import org.springframework.stereotype.Repository;
+package com.dao;
 
 /**
  * @author shaozk
- * @Description: ann dao的实现类
+ * @Description: TODO
  */
-@Repository("testDaoImpl")
-public class AnnTestDaoImpl implements ANNTestDao{
+
+public class XMLTestDaoImpl implements XMLTestDao {
+
     @Override
     public void save(String action) {
         System.out.println("保存");
     }
+
+
 }
