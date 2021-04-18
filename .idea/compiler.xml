@@ -9,6 +9,7 @@
         <module name="ch6" />
         <module name="ch5_2" />
         <module name="ch5" />
+        <module name="ch5_5" />
         <module name="ch5_4" />
         <module name="ch5_3" />
         <module name="ch2" />
@@ -25,6 +26,7 @@
       <module name="ch5_2" target="8" />
       <module name="ch5_3" target="8" />
       <module name="ch5_4" target="8" />
+      <module name="ch5_5" target="8" />
       <module name="ch6" target="8" />
       <module name="chapter2" target="8" />
       <module name="demo" target="1.7" />

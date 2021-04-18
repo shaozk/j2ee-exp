@@ -27,8 +27,8 @@ public class TransactionTemplateDao {
         transactionTemplate.execute(new TransactionCallback<Object>() {
             @Override
             public Object doInTransaction(TransactionStatus transactionStatus) {
-                String sql = "delete from user";
-                String insertSql = "insert into ;user values(?,?,?)";
+                String sql = "delete from User";
+                String insertSql = "insert into User values(?,?,?)";
                 Object param[] = {1, "shaozk", "男"};
                 try {
                     jdbcTemplate.update(sql);

@@ -18,7 +18,7 @@ public class TestSpringJdbc {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
         TestDao testDao = (TestDao) applicationContext.getBean("testDao");
-        String insertSql = "insert into user values (?,?,?)";
+        String insertSql = "insert into User values (?,?,?)";
         Object param1[] = {1,"shaozk1", "男"};
         Object param2[] = {2,"shaozk2", "男"};
         Object param3[] = {3,"shaozk3", "男"};
@@ -28,7 +28,7 @@ public class TestSpringJdbc {
         testDao.update(insertSql, param3);
         testDao.update(insertSql, param4);
         // 查询用户
-        String selectSql = "select * from user";
+        String selectSql = "select * from User";
         List<MyUser> list = testDao.query(selectSql, null);
         for(MyUser u : list) {
             System.out.println(u);

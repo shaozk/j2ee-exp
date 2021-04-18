@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!--构造方法实例化Bean-->
-    <bean id="constructorInstance" class="instance.BeanClass" scope="prototype"/>
+    <bean id="constructorInstance" class="instance.BeanClass"/>
 
     <!--静态工厂方法实例化Bean，CreateInstance为静态工厂类BeanStaticFactory中的静态方法-->
     <bean id="staticFactoryInstance" class="instance.BeanStaticFactory" factory-method="createInstance"/>
