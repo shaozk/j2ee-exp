@@ -165,14 +165,14 @@
 </beans>
 ```
 
-**statement.xml.dao.AccountDao.java**
+**statement.xml.com.dao.AccountDao.java**
 ```java
 /*
  * Date: 2021/4/2
  * Author: <https://www.github.com/shaozk>
  */
 
-package statement.xml.dao;
+package statement.xml.com.dao;
 
 /**
  * @author shaozk
@@ -189,14 +189,14 @@ public interface AccountDao {
 
 ```
 
-**statement.xml.dao.AccountDaoImpl.java**
+**statement.xml.com.dao.AccountDaoImpl.java**
 ```java
 /*
  * Date: 2021/4/2
  * Author: <https://www.github.com/shaozk>
  */
 
-package statement.xml.dao;
+package statement.xml.com.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -269,7 +269,7 @@ package statement.xml.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import statement.xml.dao.AccountDao;
+import statement.xml.com.dao.AccountDao;
 
 /**
  * @author shaozk
@@ -414,14 +414,14 @@ public class XMLText {
 </beans>
 ```
 
-**statement.annotation.dao.TAccountDao.java**
+**statement.annotation.com.dao.TAccountDao.java**
 ```java
 /*
  * Date: 2021/4/4
  * Author: <https://www.github.com/shaozk>
  */
 
-package statement.annotation.dao;
+package statement.annotation.com.dao;
 
 /**
  * @author shaozk
@@ -436,14 +436,14 @@ public interface TAccountDao {
 
 ```
 
-**statement.annotation.dao.TAccountDaoImpl.java**
+**statement.annotation.com.dao.TAccountDaoImpl.java**
 ```java
 /*
  * Date: 2021/4/4
  * Author: <https://www.github.com/shaozk>
  */
 
-package statement.annotation.dao;
+package statement.annotation.com.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -509,7 +509,7 @@ package statement.annotation.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import statement.annotation.dao.TAccountDao;
+import statement.annotation.com.dao.TAccountDao;
 
 /**
  * @author shaozk

@@ -172,7 +172,7 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.dao"/>
+    <context:component-scan base-package="com.com.dao"/>
     <!--    配置数据源-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <!--        mysql数据库驱动-->
@@ -305,14 +305,14 @@ public class User {
 
 ```
 
-**com.dao.UserDao**
+**com.com.dao.UserDao**
 ```java
 /*
  * Date: 2021/4/9
  * Author: <https://www.github.com/shaozk>
  */
 
-package com.dao;
+package com.com.dao;
 
 import com.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -440,7 +440,7 @@ public class UserDao {
  * Author: <https://www.github.com/shaozk>
  */
 
-import com.dao.UserDao;
+import com.com.dao.UserDao;
 import com.pojo.User;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

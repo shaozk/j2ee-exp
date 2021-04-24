@@ -574,7 +574,7 @@ TestDao
  * Author: <https://www.github.com/shaozk>
  */
 
-package annotation.dao;
+package annotation.com.dao;
 
 /**
  * @author shaozk
@@ -593,7 +593,7 @@ TestDaoImpl
  * Author: <https://www.github.com/shaozk>
  */
 
-package annotation.dao;
+package annotation.com.dao;
 
 import org.springframework.stereotype.Repository;
 
@@ -641,7 +641,7 @@ TestServiceImpl
 
 package annotation.service;
 
-import annotation.dao.TestDao;
+import annotation.com.dao.TestDao;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -1152,8 +1152,8 @@ public class CglibDynamicTest {
     public static void main(String[] args) {
         // 创建代理对象
         CglibDynamicProxy cdp = new CglibDynamicProxy();
-        TestDao dao = new TestDao();
-        TestDao testDaoAdvice = (TestDao) cdp.createProxy(dao);
+        TestDao com.dao = new TestDao();
+        TestDao testDaoAdvice = (TestDao) cdp.createProxy(com.dao);
         // 执行方法
         testDaoAdvice.save();
         System.out.println("==========");
@@ -1330,7 +1330,7 @@ public class XmlAspect {
        https://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--spring-beans-4.3这里的4.3是指明版本号 -->
     <!-- 1.目标类 -->
-    <bean id="testDao" class="com.dao.XMLTestDaoImpl"/>
+    <bean id="testDao" class="com.com.dao.XMLTestDaoImpl"/>
     <!-- 2.切面 -->
     <bean id="myAspect" class="aspect.xml.XmlAspect"/>
     <!-- 3.Aop编程 -->
@@ -1339,7 +1339,7 @@ public class XmlAspect {
         <aop:aspect ref="myAspect">
             <!-- 3.1配置切入点，通知最后增强那些方法 ,对所有的类，里面所有的方法进行增强 -->
             <aop:pointcut
-                    expression="execution(* com.dao.XMLTestDaoImpl.*(..))" id="myPointCut" />
+                    expression="execution(* com.com.dao.XMLTestDaoImpl.*(..))" id="myPointCut" />
             <!-- 管理通知Advice和切入点 -->
             <!-- 前置通知 -->
             <aop:before method="before" pointcut-ref="myPointCut" />
@@ -1358,7 +1358,7 @@ public class XmlAspect {
 
 package aspect.xml;
 
-import com.dao.XMLTestDao;
+import com.com.dao.XMLTestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -1398,7 +1398,7 @@ import static java.lang.System.exit;
 @Component
 class MyAspect {
     //定义切入点表达式
-    @Pointcut("execution(* com.dao.AnnTestDaoImpl.*(..))")
+    @Pointcut("execution(* com.com.dao.AnnTestDaoImpl.*(..))")
     private void myPointCut() {
         //使用一个返回值为void,方法体为空的方法来命名切入点
     }
@@ -1433,7 +1433,7 @@ class MyAspect {
 package aspect.annotation;
 
 
-import com.dao.ANNTestDao;
+import com.com.dao.ANNTestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -1444,9 +1444,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class AnnTest {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("annotationAspectContext.xml");
-        ANNTestDao dao = (ANNTestDao) applicationContext.getBean("testDaoImpl");
-        dao.save("agree");
-        dao.save("false");
+        ANNTestDao com.dao = (ANNTestDao) applicationContext.getBean("testDaoImpl");
+        com.dao.save("agree");
+        com.dao.save("false");
     }
 }
 
@@ -1559,7 +1559,7 @@ pom文件
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 <!--    指定需要扫描的包-->
-    <context:component-scan base-package="com.dao"/>
+    <context:component-scan base-package="com.com.dao"/>
 
 <!--    配置数据源-->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -1594,7 +1594,7 @@ dao层
  * Author: <https://www.github.com/shaozk>
  */
 
-package com.dao;
+package com.com.dao;
 
 import pojo.MyUser;
 
@@ -1617,7 +1617,7 @@ public interface TestDao {
  * Author: <https://www.github.com/shaozk>
  */
 
-package com.dao;
+package com.com.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -1718,7 +1718,7 @@ public class MyUser {
  * Author: <https://www.github.com/shaozk>
  */
 
-import com.dao.TestDao;
+import com.com.dao.TestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import pojo.MyUser;
@@ -1773,7 +1773,7 @@ public class TestSpringJdbc {
  * Author: <https://www.github.com/shaozk>
  */
 
-package com.dao;
+package com.com.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -1828,7 +1828,7 @@ public class CodeTransaction {
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import com.dao.CodeTransaction;
+import com.com.dao.CodeTransaction;
 
 /**
  * @author shaozk
@@ -1865,7 +1865,7 @@ public class TestCodeTransaction {
  * Author: <https://www.github.com/shaozk>
  */
 
-package com.dao;
+package com.com.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -1918,7 +1918,7 @@ public class TransactionTemplateDao {
  */
 
 
-import com.dao.TransactionTemplateDao;
+import com.com.dao.TransactionTemplateDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -1998,7 +1998,7 @@ dao层
  * Author: <https://www.github.com/shaozk>
  */
 
-package statement.dao;
+package statement.com.dao;
 
 /**
  * @author shaozk
@@ -2017,7 +2017,7 @@ public interface TestDao {
  * Author: <https://www.github.com/shaozk>
  */
 
-package statement.dao;
+package statement.com.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -2076,7 +2076,7 @@ package statement.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import statement.dao.TestDao;
+import statement.com.dao.TestDao;
 
 /**
  * @author shaozk

@@ -110,7 +110,7 @@
 
 ```
 
-**com.dao.XMLTestDao.java**
+**com.com.dao.XMLTestDao.java**
 
 ```java
 /*
@@ -123,7 +123,7 @@
  * Author: <https://www.github.com/shaozk>
  */
 
-package com.dao;
+package com.com.dao;
 
 /**
  * @author shaozk
@@ -136,7 +136,7 @@ public interface XMLTestDao {
 
 
 ```
-**com.dao.XMLTestDaoImpl.java**
+**com.com.dao.XMLTestDaoImpl.java**
 
 ```java
 /*
@@ -149,7 +149,7 @@ public interface XMLTestDao {
  * Author: <https://www.github.com/shaozk>
  */
 
-package com.dao;
+package com.com.dao;
 
 /**
  * @author shaozk
@@ -217,7 +217,7 @@ public class XmlAspect {
 
 package aspect.xml;
 
-import com.dao.XMLTestDao;
+import com.com.dao.XMLTestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -250,7 +250,7 @@ public class XmlTest {
        https://www.springframework.org/schema/aop/spring-aop.xsd">
     <!--spring-beans-4.3这里的4.3是指明版本号 -->
     <!-- 1.目标类 -->
-    <bean id="testDao" class="com.dao.XMLTestDaoImpl"/>
+    <bean id="testDao" class="com.com.dao.XMLTestDaoImpl"/>
     <!-- 2.切面 -->
     <bean id="myAspect" class="aspect.xml.XmlAspect"/>
     <!-- 3.Aop编程 -->
@@ -259,7 +259,7 @@ public class XmlTest {
         <aop:aspect ref="myAspect">
             <!-- 3.1配置切入点，通知最后增强那些方法 ,对所有的类，里面所有的方法进行增强 -->
             <aop:pointcut
-                    expression="execution(* com.dao.XMLTestDaoImpl.*(..))" id="myPointCut" />
+                    expression="execution(* com.com.dao.XMLTestDaoImpl.*(..))" id="myPointCut" />
             <!-- 管理通知Advice和切入点 -->
             <!-- 前置通知 -->
             <aop:before method="before" pointcut-ref="myPointCut" />
@@ -269,7 +269,7 @@ public class XmlTest {
 </beans>
 ```
 
-**com.dao.AnnTestDao.java**
+**com.com.dao.AnnTestDao.java**
 
 ```java
 /*
@@ -277,7 +277,7 @@ public class XmlTest {
  * Author: <https://www.github.com/shaozk>
  */
 
-package com.dao;
+package com.com.dao;
 
 /**
  * @author shaozk
@@ -290,7 +290,7 @@ public interface ANNTestDao {
 
 
 ```
-**com.dao.AnnTestDaoImpl.java**
+**com.com.dao.AnnTestDaoImpl.java**
 
 ```java
 /*
@@ -298,7 +298,7 @@ public interface ANNTestDao {
  * Author: <https://www.github.com/shaozk>
  */
 
-package com.dao;
+package com.com.dao;
 
 import org.springframework.stereotype.Repository;
 
@@ -365,7 +365,7 @@ public class XmlAspect {
 package aspect.annotation;
 
 
-import com.dao.ANNTestDao;
+import com.com.dao.ANNTestDao;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -376,9 +376,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class AnnTest {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("annotationAspectContext.xml");
-        ANNTestDao com.dao = (ANNTestDao) applicationContext.getBean("testDaoImpl");
-        com.dao.save("agree");
-        com.dao.save("false");
+        ANNTestDao com.com.dao = (ANNTestDao) applicationContext.getBean("testDaoImpl");
+        com.com.dao.save("agree");
+        com.com.dao.save("false");
     }
 }
 
@@ -401,7 +401,7 @@ public class AnnTest {
 
     <!--指定需要扫描的包，使注解生效  -->
     <context:component-scan base-package="aspect.annotation"/>
-    <context:component-scan base-package="com.dao"/>
+    <context:component-scan base-package="com.com.dao"/>
 
     <!-- 启动基于注解的AspectJ支持 -->
     <aop:aspectj-autoproxy/>

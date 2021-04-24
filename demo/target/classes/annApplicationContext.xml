@@ -12,11 +12,8 @@
         
      <!--指定需要扫描的包，使注解生效  -->  
     <context:component-scan base-package="aspectj.annotation"/>
-    <context:component-scan base-package="dao"/>
+    <context:component-scan base-package="com.com.dao"/>
     
     <!-- 启动基于注解的AspectJ支持 -->
     <aop:aspectj-autoproxy/>
-    
-    <!-- 控制反转 -->
-    <!-- <bean id="testDao" class="dao.TestDaoImpl"/> -->
 </beans>

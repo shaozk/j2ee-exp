@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generate.UserDao">
+  <resultMap id="BaseResultMap" type="generate.User">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="user_sex" jdbcType="VARCHAR" property="userSex" />
+    <result column="user_birthday" jdbcType="DATE" property="userBirthday" />
+    <result column="user_resume" jdbcType="VARCHAR" property="userResume" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="generate.User">
+    <result column="user_photo" jdbcType="BLOB" property="userPhoto" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, user_name, user_sex, user_birthday, user_resume
+  </sql>
+  <sql id="Blob_Column_List">
+    user_photo
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="generate.User" useGeneratedKeys="true">
+    insert into user (user_name, user_sex, user_birthday, 
+      user_resume, user_photo)
+    values (#{userName,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, #{userBirthday,jdbcType=DATE}, 
+      #{userResume,jdbcType=VARCHAR}, #{userPhoto,jdbcType=BLOB})
+  </insert>
+  <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="generate.User" useGeneratedKeys="true">
+    insert into user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="userSex != null">
+        user_sex,
+      </if>
+      <if test="userBirthday != null">
+        user_birthday,
+      </if>
+      <if test="userResume != null">
+        user_resume,
+      </if>
+      <if test="userPhoto != null">
+        user_photo,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userBirthday != null">
+        #{userBirthday,jdbcType=DATE},
+      </if>
+      <if test="userResume != null">
+        #{userResume,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null">
+        #{userPhoto,jdbcType=BLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="generate.User">
+    update user
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="userSex != null">
+        user_sex = #{userSex,jdbcType=VARCHAR},
+      </if>
+      <if test="userBirthday != null">
+        user_birthday = #{userBirthday,jdbcType=DATE},
+      </if>
+      <if test="userResume != null">
+        user_resume = #{userResume,jdbcType=VARCHAR},
+      </if>
+      <if test="userPhoto != null">
+        user_photo = #{userPhoto,jdbcType=BLOB},
+      </if>
+    </set>
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="generate.User">
+    update user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      user_birthday = #{userBirthday,jdbcType=DATE},
+      user_resume = #{userResume,jdbcType=VARCHAR},
+      user_photo = #{userPhoto,jdbcType=BLOB}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="generate.User">
+    update user
+    set user_name = #{userName,jdbcType=VARCHAR},
+      user_sex = #{userSex,jdbcType=VARCHAR},
+      user_birthday = #{userBirthday,jdbcType=DATE},
+      user_resume = #{userResume,jdbcType=VARCHAR}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -81,14 +81,14 @@ public class Book {
 
 ```
 
-**com.dao.BookDao.java**
+**com.com.dao.BookDao.java**
 ```java
 /*
  * Date: 2021/3/19
  * Author: <https://www.github.com/shaozk>
  */
 
-package book.com.dao;
+package book.com.com.dao;
 
 import book.pojo.Book;
 
@@ -105,14 +105,14 @@ public interface BookDao {
 
 ```
 
-**com.dao.BookDaoImpl.java**
+**com.com.dao.BookDaoImpl.java**
 ```java
 /*
  * Date: 2021/3/19
  * Author: <https://www.github.com/shaozk>
  */
 
-package book.com.dao;
+package book.com.com.dao;
 
 import book.pojo.Book;
 
@@ -161,7 +161,7 @@ public interface BookService {
 
 package book.com.service;
 
-import book.com.dao.BookDao;
+import book.com.com.dao.BookDao;
 import book.pojo.Book;
 
 /**
@@ -263,7 +263,7 @@ public class TestBook {
     </bean>
 
     <!-- 配置DAO层（实例化BookDao）-->
-    <bean id="bookDAO" class="book.com.dao.BookDaoImpl"/>
+    <bean id="bookDAO" class="book.com.com.dao.BookDaoImpl"/>
 
     <!-- 配置Service层（Setter方式）-->
     <bean id="bookService" class="book.com.service.BookServiceImpl">

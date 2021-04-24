@@ -20,7 +20,7 @@
     </bean>
 
     <!-- 配置DAO层（实例化BookDao）-->
-    <bean id="bookDAO" class="book.com.dao.BookDaoImpl"/>
+    <bean id="bookDAO" class="book.com.com.dao.BookDaoImpl"/>
 
     <!-- 配置Service层（Setter方式）-->
     <bean id="bookService" class="book.com.service.BookServiceImpl">

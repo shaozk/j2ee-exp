@@ -756,118 +756,151 @@ SELECT|sys.sys_config
       <ObjectGrants>ALL PRIVILEGES!
 </ObjectGrants>
     </user>
-    <table id="234" parent="6" name="bank_account">
+    <table id="234" parent="6" name="User"/>
+    <table id="235" parent="6" name="bank_account">
       <Comment>银行账户转账&#xd;
 </Comment>
     </table>
-    <table id="235" parent="6" name="t_login_log">
+    <table id="236" parent="6" name="t_login_log">
       <Collation>utf8mb4_general_ci</Collation>
     </table>
-    <table id="236" parent="6" name="t_user">
+    <table id="237" parent="6" name="t_user">
       <Collation>utf8mb4_general_ci</Collation>
     </table>
-    <table id="237" parent="6" name="user">
+    <table id="238" parent="6" name="user">
       <Comment>测试jdbcTemple数据库</Comment>
     </table>
-    <column id="238" parent="234" name="id">
+    <column id="239" parent="234" name="uid">
       <Position>1</Position>
       <DataType>int(20)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="239" parent="234" name="user">
+    <column id="240" parent="234" name="uname">
+      <Position>2</Position>
+      <DataType>varchar(30)|0s</DataType>
+      <Collation>utf8_bin</Collation>
+    </column>
+    <column id="241" parent="234" name="usex">
+      <Position>3</Position>
+      <DataType>varchar(20)|0s</DataType>
+      <Collation>utf8_bin</Collation>
+    </column>
+    <key id="242" parent="234" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>uid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="243" parent="235" name="id">
+      <Position>1</Position>
+      <DataType>int(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="244" parent="235" name="user">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="240" parent="234" name="money">
+    <column id="245" parent="235" name="money">
       <Position>3</Position>
       <DataType>int(10) unsigned|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <key id="241" parent="234" name="PRIMARY">
+    <key id="246" parent="235" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="242" parent="235" name="login_log_id">
+    <column id="247" parent="236" name="login_log_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="243" parent="235" name="user_id">
+    <column id="248" parent="236" name="user_id">
       <Position>2</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="244" parent="235" name="ip">
+    <column id="249" parent="236" name="ip">
       <Position>3</Position>
       <DataType>varchar(23)|0s</DataType>
     </column>
-    <column id="245" parent="235" name="login_datetime">
+    <column id="250" parent="236" name="login_datetime">
       <Position>4</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <key id="246" parent="235" name="PRIMARY">
+    <key id="251" parent="236" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>login_log_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="247" parent="236" name="user_id">
+    <column id="252" parent="237" name="user_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="248" parent="236" name="user_name">
+    <column id="253" parent="237" name="user_name">
       <Position>2</Position>
       <DataType>varchar(30)|0s</DataType>
     </column>
-    <column id="249" parent="236" name="credits">
+    <column id="254" parent="237" name="credits">
       <Position>3</Position>
       <DataType>int(11)|0s</DataType>
     </column>
-    <column id="250" parent="236" name="password">
+    <column id="255" parent="237" name="password">
       <Position>4</Position>
       <DataType>varchar(32)|0s</DataType>
     </column>
-    <column id="251" parent="236" name="last_visit">
+    <column id="256" parent="237" name="last_visit">
       <Position>5</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <column id="252" parent="236" name="last_ip">
+    <column id="257" parent="237" name="last_ip">
       <Position>6</Position>
       <DataType>varchar(23)|0s</DataType>
     </column>
-    <key id="253" parent="236" name="PRIMARY">
+    <key id="258" parent="237" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>user_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="254" parent="237" name="user-id">
+    <column id="259" parent="238" name="user_id">
       <Position>1</Position>
       <DataType>int(10) unsigned|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="255" parent="237" name="user-name">
+    <column id="260" parent="238" name="user_name">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
+      <Collation>utf8_bin</Collation>
     </column>
-    <column id="256" parent="237" name="user-sex">
+    <column id="261" parent="238" name="user_sex">
       <Position>3</Position>
-      <DataType>tinyint(2) unsigned|0s</DataType>
+      <Comment>0表示男，1表示女</Comment>
+      <DataType>varchar(20)|0s</DataType>
+      <Collation>utf8_bin</Collation>
     </column>
-    <column id="257" parent="237" name="user_birthday">
+    <column id="262" parent="238" name="user_birthday">
       <Position>4</Position>
       <DataType>date|0s</DataType>
     </column>
-    <column id="258" parent="237" name="user_photo">
+    <column id="263" parent="238" name="user_photo">
       <Position>5</Position>
-      <DataType>tinyblob|0s</DataType>
+      <DataType>text|0s</DataType>
     </column>
-    <column id="259" parent="237" name="user_resume">
+    <column id="264" parent="238" name="user_resume">
       <Position>6</Position>
       <DataType>tinytext|0s</DataType>
+      <Collation>utf8_bin</Collation>
     </column>
+    <key id="265" parent="238" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>user_id</ColNames>
+      <Primary>1</Primary>
+    </key>
   </database-model>
 </dataSource>

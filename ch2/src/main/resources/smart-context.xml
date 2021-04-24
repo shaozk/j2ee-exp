@@ -15,7 +15,7 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!-- 扫描类包，将标注Spring注解的类自动转化Bean，同时完成Bean的注入 -->
-    <context:component-scan base-package="com.smart.com.dao"/>
+    <context:component-scan base-package="com.smart.com.com.dao"/>
     <context:component-scan base-package="com.smart.com.service"/>
 
     <!-- 配置数据源 -->
