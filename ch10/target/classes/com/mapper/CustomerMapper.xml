@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapper.CustomerMapper">
+
+<!--    1）查询一个购买批次的信息以及创建该批次的用户-->
+    <select id="selectBatchAndCustomer" parameterType="Integer" resultType="com.pojo.SelectBatchAndCustomer">
+        select batch.*, customer.*
+        from batch, customer
+        where batch.cus_id = customer.cus_id and batch.batch_id = #{id}
+    </select>
+
+    <!--    2）在（1）的基础上增加对该批次从属的理财产品信息的查询-->
+    <resultMap id="batchAndCustomerAndProducts" type="com.pojo.SelectBatchAndCustomerAndProducts">
+        <id property="batchId" column="batch_id"/>
+        <result property="cusId" column="cus_id"/>
+        <result property="createTime" column="createtime"/>
+        <result property="number" column="number"/>
+        <result property="note" column="note"/>
+<!--        一对一-->
+        <association property="customer" javaType="com.po.Customer">
+            <id property="cusId" column="product_id"/>
+            <result property="userName" column="username"/>
+            <result property="gender" column="gender"/>
+            <result property="phone" column="phone"/>
+            <result property="acno" column="acno"/>
+        </association>
+<!--        多对多-->
+        <collection property="products" ofType="com.po.FinancialProducts">
+            <id property="productId" column="product_id"/>
+            <result property="name" column="name"/>
+            <result property="price" column="price"/>
+            <result property="pic" column="pic"/>
+            <result property="detail" column="detial"/>
+            <result property="invastTime" column="invasttime"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectBatchAndCustomerAndProduct" parameterType="Integer" resultMap="batchAndCustomerAndProducts">
+        select batch.*, customer.*, fp.*
+        from batch, batchdetail bd, finacial_products fp, customer
+        where batch.cus_id = customer.cus_id
+          and batch.batch_id = bd.batch_id
+          and bd.product_id = fp.product_id
+          and batch.batch_id = #{id}
+    </select>
+
+<!--    （3）查询所有用户以及用户对应的批次订单中所有理财产品的详细信息。-->
+    <resultMap id="customerAndBatchAndProducts" type="com.pojo.SelectCustomerAndBatchAndProducts">
+        <id property="cusId" column="cus_id"/>
+        <result property="userName" column="username"/>
+        <result property="gender" column="gender"/>
+        <result property="phone" column="phone"/>
+        <result property="acno" column="acno"/>
+        <!--        一对一-->
+        <association property="batch" javaType="com.po.Batch">
+            <id property="batchId" column="batch_id"/>
+            <result property="cusId" column="cus_id"/>
+            <result property="createTime" column="createtime"/>
+            <result property="number" column="number"/>
+            <result property="note" column="note"/>
+        </association>
+        <!--        多对多-->
+        <collection property="products" ofType="com.po.FinancialProducts">
+            <id property="productId" column="product_id"/>
+            <result property="name" column="name"/>
+            <result property="price" column="price"/>
+            <result property="pic" column="pic"/>
+            <result property="detail" column="detial"/>
+            <result property="invastTime" column="invasttime"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectAllBatchAndCustomerAndProduct" resultMap="customerAndBatchAndProducts">
+        select batch.*, customer.*, fp.*
+        from batch, batchdetail bd, finacial_products fp, customer
+        where batch.cus_id = customer.cus_id
+          and batch.batch_id = bd.batch_id
+          and bd.product_id = fp.product_id
+    </select>
+
+
+
+
+
+
+</mapper>

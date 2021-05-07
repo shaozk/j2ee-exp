@@ -13,6 +13,7 @@
         <module name="ch5_4" />
         <module name="ch5_3" />
         <module name="ch6_2" />
+        <module name="ch10" />
         <module name="ch9_3" />
         <module name="ch2" />
         <module name="demo" />
@@ -25,6 +26,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ch10" target="8" />
       <module name="ch2" target="8" />
       <module name="ch3" target="1.7" />
       <module name="ch4" target="8" />
