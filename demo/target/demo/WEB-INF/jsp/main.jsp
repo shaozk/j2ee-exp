@@ -1,12 +1,18 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Administrator
+  Date: 2021/5/14
+  Time: 20:44
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>My JSP 'index.jsp' starting page</title>
+    <title>主页面</title>
 </head>
 <body>
-没注册的用户，请<a href="${pageContext.request.contextPath }/index/register">注册</a>！<br>
-已注册的用户，去<a href="${pageContext.request.contextPath }/index/login">登录</a>！
+欢迎${sessionScope.u.uname }访问该系统。
 </body>
 </html>

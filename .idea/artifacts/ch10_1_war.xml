@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ch10_1:war">
+    <output-path>$PROJECT_DIR$/../j2ee-demo/ch10_1/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>ch10_1</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ch10_1.war">
+      <element id="artifact" artifact-name="ch10_1:war exploded" />
+    </root>
+  </artifact>
+</component>

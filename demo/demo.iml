@@ -15,6 +15,7 @@
       <configuration>
         <fileset id="fileset" name="ApplicationContext" removed="false">
           <file>file://$MODULE_DIR$/src/main/java/aspectj/annotation/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/springmvc-servlet.tld</file>
         </fileset>
       </configuration>
     </facet>
@@ -39,5 +40,9 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-context-support:4.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.2.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.8.13" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-web:5.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: javax.servlet:javax.servlet-api:3.1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.18.20" level="project" />
   </component>
 </module>

@@ -462,7 +462,7 @@ public class CustomerMapperTest {
 
 tips:一些琐碎的文件没贴出来，如spring配置文件，mybatis配置文件，日志文件，pom文件。
 
-###实验结果
+### 实验结果
 ![实验10-1](../images/实验10-1.png)
 ![实验10-2](../images/实验10-2.png)
 ![实验10-3](../images/实验10-3.png)

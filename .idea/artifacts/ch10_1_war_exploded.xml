@@ -1,17 +1,17 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="demo:war exploded">
-    <output-path>$PROJECT_DIR$/demo/target/demo</output-path>
+  <artifact type="exploded-war" name="ch10_1:war exploded">
+    <output-path>$PROJECT_DIR$/../j2ee-demo/ch10_1/target/ch10_1</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
-        <module>demo</module>
+        <module>ch10_1</module>
         <packaging>war</packaging>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="demo" />
+          <element id="module-output" name="ch10_1" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.3.5" />
@@ -29,9 +29,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/demo/target/demo/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/../j2ee-demo/ch10_1/target/ch10_1/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="demo/web/Web" />
+      <element id="javaee-facet-resources" facet="ch10_1/web/Web" />
     </root>
   </artifact>
 </component>
