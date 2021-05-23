@@ -22,21 +22,21 @@
     <include refid="Base_Column_List" />
     ,
     <include refid="Blob_Column_List" />
-    from user
+    from student
     where user_id = #{userId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user
+    delete from student
     where user_id = #{userId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="user_id" keyProperty="userId" parameterType="generate.User" useGeneratedKeys="true">
-    insert into user (user_name, user_sex, user_birthday, 
+    insert into student (user_name, user_sex, user_birthday,
       user_resume, user_photo)
     values (#{userName,jdbcType=VARCHAR}, #{userSex,jdbcType=VARCHAR}, #{userBirthday,jdbcType=DATE}, 
       #{userResume,jdbcType=VARCHAR}, #{userPhoto,jdbcType=BLOB})
   </insert>
   <insert id="insertSelective" keyColumn="user_id" keyProperty="userId" parameterType="generate.User" useGeneratedKeys="true">
-    insert into user
+    insert into student
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="userName != null">
         user_name,
@@ -73,7 +73,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="generate.User">
-    update user
+    update student
     <set>
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
@@ -94,7 +94,7 @@
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKeyWithBLOBs" parameterType="generate.User">
-    update user
+    update student
     set user_name = #{userName,jdbcType=VARCHAR},
       user_sex = #{userSex,jdbcType=VARCHAR},
       user_birthday = #{userBirthday,jdbcType=DATE},
@@ -103,7 +103,7 @@
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="generate.User">
-    update user
+    update student
     set user_name = #{userName,jdbcType=VARCHAR},
       user_sex = #{userSex,jdbcType=VARCHAR},
       user_birthday = #{userBirthday,jdbcType=DATE},

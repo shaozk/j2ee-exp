@@ -306,7 +306,7 @@ public class LoginController implements Controller {
     </script>
 </head>
 <body>
-<form action="${pageContext.request.contextPath }/user/login" method="post">
+<form action="${pageContext.request.contextPath }/student/login" method="post">
     <table>
         <tr>
             <td colspan="2"><img src="${pageContext.request.contextPath }/images/login.gif"></td>
@@ -412,7 +412,7 @@ public class LoginController implements Controller {
     </script>
 </head>
 <body>
-<form action="${pageContext.request.contextPath }/user/register" method="post" name="registForm">
+<form action="${pageContext.request.contextPath }/student/register" method="post" name="registForm">
     <table
             border=1
             bgcolor="lightblue"
@@ -420,7 +420,7 @@ public class LoginController implements Controller {
         <tr>
             <td>姓名：</td>
             <td>
-                <input class="textSize" type="text" name="uname" value="${user.uname }"/>
+                <input class="textSize" type="text" name="uname" value="${student.uname }"/>
             </td>
         </tr>
 
@@ -490,7 +490,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pojo.UserForm;
+import pojo.Student;
 import service.UserService;
 
 import javax.servlet.http.HttpSession;
@@ -499,7 +499,7 @@ import javax.servlet.http.HttpSession;
  * @author shaozk
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/student")
 public class UserController {
     //得到一个用来记录日志的对象，这样打印信息的时候能够标记打印的是那个类的信息
     private static final Log logger = LogFactory.getLog(UserController.class);
@@ -510,9 +510,9 @@ public class UserController {
      * 处理登录
      */
     @RequestMapping("/login")
-    public String login(UserForm user, HttpSession session, Model model) {
-        if(userService.login(user)){
-            session.setAttribute("u", user);
+    public String login(UserForm student, HttpSession session, Model model) {
+        if(userService.login(student)){
+            session.setAttribute("u", student);
             logger.info("成功");
             return "main";//登录成功，跳转到main.jsp
         }else{
@@ -525,14 +525,14 @@ public class UserController {
      *处理注册
      */
     @RequestMapping("/register")
-    public String register(@ModelAttribute("user") UserForm user) {
-        if(userService.register(user)){
+    public String register(@ModelAttribute("student") UserForm student) {
+        if(userService.register(student)){
             logger.info("成功");
             return "login";//注册成功，跳转到login.jsp
         }else{
             logger.info("失败");
-            //使用@ModelAttribute("user")与model.addAttribute("user", user)功能相同
-            //在register.jsp页面上可以使用EL表达式${user.uname}取出ModelAttribute的uname值
+            //使用@ModelAttribute("student")与model.addAttribute("student", student)功能相同
+            //在register.jsp页面上可以使用EL表达式${student.uname}取出ModelAttribute的uname值
             return "register";//返回register.jsp
         }
     }
@@ -572,14 +572,14 @@ public class UserForm {
 
 package service;
 
-import pojo.UserForm;
+import pojo.Student;
 
 /**
  * @author shaozk
  */
 public interface UserService {
-    boolean login(UserForm user);
-    boolean register(UserForm user);
+    boolean login(UserForm student);
+    boolean register(UserForm student);
 }
 
 ```
@@ -594,7 +594,7 @@ public interface UserService {
 package service;
 
 import org.springframework.stereotype.Service;
-import pojo.UserForm;
+import pojo.Student;
 
 /**
  * TODO
@@ -604,16 +604,16 @@ import pojo.UserForm;
 @Service
 public class UserServiceImpl implements UserService{
     @Override
-    public boolean login(UserForm user) {
-        if("shaozk".equals(user.getUname())
-                && "123456".equals(user.getUpass()))
+    public boolean login(UserForm student) {
+        if("shaozk".equals(student.getUname())
+                && "123456".equals(student.getUpass()))
             return true;
         return false;
     }
     @Override
-    public boolean register(UserForm user) {
-        if("shaozk".equals(user.getUname())
-                && "123456".equals(user.getUpass()))
+    public boolean register(UserForm student) {
+        if("shaozk".equals(student.getUname())
+                && "123456".equals(student.getUpass()))
             return true;
         return false;
     }

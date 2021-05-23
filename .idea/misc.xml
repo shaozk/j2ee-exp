@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="ejb" url="file://$PROJECT_DIR$/ch13/ejbs" />
+    <file type="javaeeApplication" url="file://$PROJECT_DIR$/ch13/ear" />
+    <file type="web" url="file://$PROJECT_DIR$/../ch13" />
     <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch10_1" />
     <file type="web" url="file://$PROJECT_DIR$/ch/ch11" />
+    <file type="web" url="file://$PROJECT_DIR$/ch12" />
+    <file type="web" url="file://$PROJECT_DIR$/ch13" />
     <file type="web" url="file://$PROJECT_DIR$/ch2" />
     <file type="web" url="file://$PROJECT_DIR$/ch3" />
-    <file type="web" url="file://$PROJECT_DIR$/demo" />
     <type id="Spring" />
   </component>
   <component name="MavenProjectsManager">
@@ -31,6 +35,7 @@
         <option value="$PROJECT_DIR$/ch10/pom.xml" />
         <option value="$PROJECT_DIR$/ch/ch11/pom.xml" />
         <option value="$PROJECT_DIR$/../j2ee-demo/ch10_1/pom.xml" />
+        <option value="$PROJECT_DIR$/ch13/pom.xml" />
       </list>
     </option>
   </component>

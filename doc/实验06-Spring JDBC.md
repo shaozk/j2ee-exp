@@ -213,7 +213,7 @@ log4j.appender.R.layout.ConversionPattern=%p %t %c - %m%n
 
 ```
 
-**com.pojo.User**
+**com.pojo.Student**
 ```java
 /*
  * Date: 2021/4/9
@@ -314,7 +314,7 @@ public class User {
 
 package com.com.dao;
 
-import com.pojo.User;
+import com.pojo.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
@@ -338,17 +338,17 @@ public class UserDao {
 
     /**
      * 插入数据
-     * @param user
+     * @param student
      */
-    public int insert(User user) {
-        String sql = "insert into user (user_id, user_name, user_sex, user_birthday, user_photo, user_resume) values (?,?,?,?,?,? )";
+    public int insert(User student) {
+        String sql = "insert into student (user_id, user_name, user_sex, user_birthday, user_photo, user_resume) values (?,?,?,?,?,? )";
         Object[] obj = new Object[]{
-                user.getUserId(),
-                user.getUserName(),
-                user.getUserSex(),
-                user.getUserBirthday(),
-                user.getUserPhoto(),
-                user.getUserResume()
+                student.getUserId(),
+                student.getUserName(),
+                student.getUserSex(),
+                student.getUserBirthday(),
+                student.getUserPhoto(),
+                student.getUserResume()
         };
         //DML操作都使用update方法。
         return jdbcTemplate.update(sql, obj);
@@ -359,24 +359,24 @@ public class UserDao {
      * @param id
      */
     public int delete(int id) {
-        String sql = "delete from user where user_id = ?";
+        String sql = "delete from student where user_id = ?";
         Object[] obj = new Object[]{id};
         return jdbcTemplate.update(sql, obj);
     }
 
     /**
      * 更新数据
-     * @param user
+     * @param student
      */
-    public int update(User user) {
-        String sql = "update user set user_id = ?, user_name = ?, user_sex = ?, user_birthday = ?, user_photo = ?, user_resume = ?";
+    public int update(User student) {
+        String sql = "update student set user_id = ?, user_name = ?, user_sex = ?, user_birthday = ?, user_photo = ?, user_resume = ?";
         Object[] obj = new Object[]{
-                user.getUserId(),
-                user.getUserName(),
-                user.getUserSex(),
-                user.getUserBirthday(),
-                user.getUserPhoto(),
-                user.getUserResume()
+                student.getUserId(),
+                student.getUserName(),
+                student.getUserSex(),
+                student.getUserBirthday(),
+                student.getUserPhoto(),
+                student.getUserResume()
         };
         return jdbcTemplate.update(sql, obj);
     }
@@ -386,43 +386,43 @@ public class UserDao {
      * @param id
      */
     public User query(int id) {
-        String sql = "select * from user where user_id = ?";
-        final User user = new User();
+        String sql = "select * from student where user_id = ?";
+        final User student = new User();
         Object[] obj = new Object[]{id};
 
         jdbcTemplate.query(sql, obj, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
-                user.setUserId(id);
-                user.setUserName(rs.getString("user_name"));
-                user.setUserSex(Integer.parseInt(rs.getString("user_sex")));
-                user.setUserBirthday(rs.getDate("user_birthday"));
-                user.setUserPhoto(rs.getBlob("user_photo"));
-                user.setUserResume(rs.getString("user_resume"));
+                student.setUserId(id);
+                student.setUserName(rs.getString("user_name"));
+                student.setUserSex(Integer.parseInt(rs.getString("user_sex")));
+                student.setUserBirthday(rs.getDate("user_birthday"));
+                student.setUserPhoto(rs.getBlob("user_photo"));
+                student.setUserResume(rs.getString("user_resume"));
             }
         });
 
-        return user;
+        return student;
     }
 
     /**
      * 查询所有用户
      */
     public List<User> queryAll() {
-        String sql = "select * from user";
+        String sql = "select * from student";
         final List<User> list = new ArrayList<User>();
 
         jdbcTemplate.query(sql, new RowCallbackHandler() {
             @Override
             public void processRow(ResultSet rs) throws SQLException {
-                User user = new User();
-                user.setUserId(rs.getInt("user_id"));
-                user.setUserName(rs.getString("user_name"));
-                user.setUserSex(Integer.parseInt(rs.getString("user_sex")));
-                user.setUserBirthday(rs.getDate("user_birthday"));
-                user.setUserPhoto(rs.getBlob("user_photo"));
-                user.setUserResume(rs.getString("user_resume"));
-                list.add(user);
+                User student = new User();
+                student.setUserId(rs.getInt("user_id"));
+                student.setUserName(rs.getString("user_name"));
+                student.setUserSex(Integer.parseInt(rs.getString("user_sex")));
+                student.setUserBirthday(rs.getDate("user_birthday"));
+                student.setUserPhoto(rs.getBlob("user_photo"));
+                student.setUserResume(rs.getString("user_resume"));
+                list.add(student);
             }
         });
 
@@ -441,7 +441,7 @@ public class UserDao {
  */
 
 import com.com.dao.UserDao;
-import com.pojo.User;
+import com.pojo.Student;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -464,18 +464,18 @@ public class SpringJdbcTest {
 
     @Test
     public void insert() throws FileNotFoundException {
-        User user = new User();
-        user.setUserId(1);
-        user.setUserName("shaozk");
-        user.setUserSex(0);
-        user.setUserBirthday(new Date());
-        user.setUserPhoto(null);
+        User student = new User();
+        student.setUserId(1);
+        student.setUserName("shaozk");
+        student.setUserSex(0);
+        student.setUserBirthday(new Date());
+        student.setUserPhoto(null);
 
-        user.setUserResume("hello,world");
+        student.setUserResume("hello,world");
 
         // 添加用户
-        if(1 == userDao.insert(user)) {
-            System.out.println("添加用户成功 ==> " + user.toString() );
+        if(1 == userDao.insert(student)) {
+            System.out.println("添加用户成功 ==> " + student.toString() );
         } else {
             System.out.println("添加用户失败，请稍后再试。。");
         }
@@ -484,17 +484,17 @@ public class SpringJdbcTest {
     @Test
     public void update() {
         // 修改用户信息
-        User user = new User();
-        user.setUserId(1);
-        user.setUserName("kangshen");
-        user.setUserSex(1);
-        user.setUserBirthday(new Date());
-        user.setUserPhoto(null);
-        user.setUserResume("make progress every day");
-        assert userDao.update(user) == 1;
+        User student = new User();
+        student.setUserId(1);
+        student.setUserName("kangshen");
+        student.setUserSex(1);
+        student.setUserBirthday(new Date());
+        student.setUserPhoto(null);
+        student.setUserResume("make progress every day");
+        assert userDao.update(student) == 1;
 
-        if(1 == userDao.update(user)) {
-            System.out.println("修改用户信息成功 ==> " + user.toString() );
+        if(1 == userDao.update(student)) {
+            System.out.println("修改用户信息成功 ==> " + student.toString() );
         } else {
             System.out.println("修改用户信息失败，请稍后再试。。");
         }
@@ -512,9 +512,9 @@ public class SpringJdbcTest {
 
     @Test
     public void query() {
-        User user = userDao.query(1);
-        if (user != null) {
-            System.out.println("查询用户成功 == 》" + user);
+        User student = userDao.query(1);
+        if (student != null) {
+            System.out.println("查询用户成功 == 》" + student);
         } else {
             System.out.println("找不到该用户");
         }

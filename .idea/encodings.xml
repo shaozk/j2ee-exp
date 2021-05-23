@@ -2,11 +2,13 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/../j2ee-demo/ch10_1/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ch12/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ch12/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ch13/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/ch13/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ch2/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ch2/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ch3/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/ch3/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/demo/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/demo/src/main/resources" charset="UTF-8" />
   </component>
 </project>

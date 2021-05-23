@@ -832,8 +832,8 @@ public interface UserMapper {
 
     public MyUser selectUserById(Integer uid);
     public List<MyUser> selectAllUser();
-    public int addUser(MyUser user);
-    public int updateUser(MyUser user);
+    public int addUser(MyUser student);
+    public int updateUser(MyUser student);
     public int deleteUser(Integer uid);
     public MyUser selectUserOrdersById1(Integer uid);
     public MyUser selectUserOrdersById2(Integer uid);

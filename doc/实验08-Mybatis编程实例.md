@@ -342,8 +342,8 @@ public class MyBatisTest {
 
             // SqlSession执行映射文件中定义的SQL，并返回映射结果
             // 查询一个用户
-            MyUser user = ss.selectOne("UserMapper.selectUserById", 1);
-            System.out.println(user);
+            MyUser student = ss.selectOne("UserMapper.selectUserById", 1);
+            System.out.println(student);
 
             // 添加一个用户
             MyUser addUser = new MyUser();
@@ -782,8 +782,8 @@ public interface UserMapper {
      */
     public MyUser selectUserById(Integer uid);
     public List<MyUser> selectAllUser();
-    public int addUser(MyUser user);
-    public int updateUser(MyUser user);
+    public int addUser(MyUser student);
+    public int updateUser(MyUser student);
     public int deleteUser(Integer uid);
 
 }
@@ -845,8 +845,8 @@ public class UserController {
         System.out.println("========");
 
         List<MyUser> list = userMapper.selectAllUser();
-        for(MyUser user : list) {
-            System.out.println(user);
+        for(MyUser student : list) {
+            System.out.println(student);
         }
 
 
@@ -888,7 +888,7 @@ public class TestController {
 结果截图
 ![实验08-Mybatis与Spring整合](../images/实验08-Mybatis与Spring整合.png)
 
-## 利用MyBatis实现用户表（user）的增删改查
+## 利用MyBatis实现用户表（student）的增删改查
 
 目录结构
 ![实验08](../images/实验08-Mybatis增删改查-目录结构.png)
@@ -1240,11 +1240,11 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
     // 添加用户
-    public int addUser(MUser user);
+    public int addUser(MUser student);
     // 删除用户
     public int deleteUser(int id);
     // 修改用户信息
-    public int updateUser(MUser user);
+    public int updateUser(MUser student);
     // 查询用户
     public MUser queryUserById(Integer id);
     // 根据用户名茶渣
@@ -1275,22 +1275,22 @@ public interface UserMapper {
     </resultMap>
 
     <insert id="addUser" parameterType="pojo.MUser">
-        insert into user (user_name, user_sex, user_birthday, user_photo, user_resume) values (#{userName}, #{userSex}, #{userBirthday}, #{userPhoto}, #{userResume})
+        insert into student (user_name, user_sex, user_birthday, user_photo, user_resume) values (#{userName}, #{userSex}, #{userBirthday}, #{userPhoto}, #{userResume})
     </insert>
     <update id="updateUser" parameterType="pojo.MUser">
-        update user set user_name=#{userName},user_sex = #{userSex}, user_birthday=#{userBirthday}, user_photo=#{userPhoto}, user_resume=#{userResume} where user_id = #{userID}
+        update student set user_name=#{userName},user_sex = #{userSex}, user_birthday=#{userBirthday}, user_photo=#{userPhoto}, user_resume=#{userResume} where user_id = #{userID}
     </update>
     <delete id="deleteUser" parameterType="int">
-        delete from user where user_id = #{id}
+        delete from student where user_id = #{id}
     </delete>
     <select id="queryUserById" parameterType="Integer" resultType="pojo.MUser" resultMap="ResultMap">
-        select * from user where user_id = #{user_id}
+        select * from student where user_id = #{user_id}
     </select>
     <select id="queryAllUser" resultType="pojo.MUser" resultMap="ResultMap">
-        select * from user
+        select * from student
     </select>
     <select id="queryUserByName" parameterType="String" resultType="pojo.MUser" resultMap="ResultMap">
-        select * from user where user_name = #{name}
+        select * from student where user_name = #{name}
     </select>
 
 
@@ -1338,18 +1338,18 @@ public class UserMapperTest {
     @Autowired
     private UserMapper userMapper;
 
-    MUser user = new MUser();
+    MUser student = new MUser();
 
     @Test
     public void addUser() throws FileNotFoundException {
-        user.setUserName("kangshen");
-        user.setUserSex("man");
-        user.setUserBirthday(new Date());
-        user.setUserPhoto(new Byte[]{});
-        user.setUserResume("hello world");
+        student.setUserName("kangshen");
+        student.setUserSex("man");
+        student.setUserBirthday(new Date());
+        student.setUserPhoto(new Byte[]{});
+        student.setUserResume("hello world");
 
         // 保存用户
-        int au = userMapper.addUser(user);
+        int au = userMapper.addUser(student);
         System.out.println("添加了" + au + "条记录");;
 
     }
@@ -1362,29 +1362,29 @@ public class UserMapperTest {
 
     @Test
     public void updateUser() {
-        user.setUserResume("someone wait you");
-        int uu = userMapper.updateUser(user);
+        student.setUserResume("someone wait you");
+        int uu = userMapper.updateUser(student);
         System.out.println("更新了" + uu + "条记录");
     }
 
     @Test
     public void queryUserById() {
-        MUser user = userMapper.queryUserById(1);
-        System.out.println(user);
+        MUser student = userMapper.queryUserById(1);
+        System.out.println(student);
 
     }
 
     @Test
     public void queryUserByName() {
-        MUser user = userMapper.queryUserByName("shaozk");
-        System.out.println(user);
+        MUser student = userMapper.queryUserByName("shaozk");
+        System.out.println(student);
     }
 
     @Test
     public void queryAllUser() {
         List<MUser> list = userMapper.queryAllUser();
-        for(MUser user : list) {
-            System.out.println(user);
+        for(MUser student : list) {
+            System.out.println(student);
         }
     }
 }

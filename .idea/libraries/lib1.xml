@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="lib1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ch12/target/demo/WEB-INF/lib/spring-web-5.0.2.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ch12/target/demo/WEB-INF/lib/spring-aop-5.0.2.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ch12/target/demo/WEB-INF/lib/lombok-1.18.20.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ch12/target/demo/WEB-INF/lib/spring-context-support-4.2.2.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ch12/target/demo/WEB-INF/lib/spring-webmvc-5.0.2.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ch12/target/demo/WEB-INF/lib/javax.servlet-api-3.1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ch12/target/demo/WEB-INF/lib/spring-expression-4.2.2.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ch12/target/demo/WEB-INF/lib/spring-jcl-5.3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ch12/target/demo/WEB-INF/lib/aspectjweaver-1.8.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ch12/target/demo/WEB-INF/lib/spring-beans-5.0.20.RELEASE.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ch12/target/demo/WEB-INF/lib/spring-core-5.3.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ch12/target/demo/WEB-INF/lib/spring-context-5.0.2.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1799,8 +1799,8 @@ public class CodeTransaction {
         String message = "执行成功，没有事务回滚";
         try {
             // 删除表中数据
-            String sql = "delete from user";
-            String addSql = "insert into user values(?,?,?)";
+            String sql = "delete from student";
+            String addSql = "insert into student values(?,?,?)";
             Object param[] = {1, "shaozk", "男"};
             jdbcTemplate.update(sql);
             jdbcTemplate.update(addSql, param);
@@ -2092,7 +2092,7 @@ public class TestServiceImpl implements TestService{
     @Override
     public void test() {
         try {
-            String deleteSql = "delete from user";
+            String deleteSql = "delete from student";
             String saveSql = "insert into User values(?,?,?)";
             Object param[] = {1, "shaozk", "男"};
             testDao.delete(deleteSql, null);

@@ -7,23 +7,23 @@
 <!--        根据uid查询一个用户的信息-->
     <select id="selectUserById" parameterType="Integer"
             resultType="com.mybatis.com.po.MyUser">
-        select * from user where uid = #{uid}
+        select * from student where uid = #{uid}
     </select>
 <!--    查询所有用户信息-->
     <select id="selectAllUser" resultType="com.mybatis.com.po.MyUser">
-        select * from user
+        select * from student
     </select>
 <!--    添加一个用户#{uname}为 com.mybatis.com.po.MyUser的属性值-->
     <insert id="addUser" parameterType="com.mybatis.com.po.MyUser">
-        insert into user (uname, usex) values (#{uname}, #{usex})
+        insert into student (uname, usex) values (#{uname}, #{usex})
     </insert>
 <!--    修改一个用户-->
     <update id="updateUser" parameterType="com.mybatis.com.po.MyUser">
-        update user set uname=#{uname},usex = #{usex} where uid = #{uid}
+        update student set uname=#{uname},usex = #{usex} where uid = #{uid}
     </update>
 <!--    删除一个用户-->
     <delete id="deleteUser" parameterType="Integer">
-        delete from user where uid = #{uid}
+        delete from student where uid = #{uid}
     </delete>
 
 

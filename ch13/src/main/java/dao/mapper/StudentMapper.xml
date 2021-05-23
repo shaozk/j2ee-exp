@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dao.mapper.StudentMapper">
+
+    <resultMap id="courseAndScore" type="pojo.StudentCourseAndScore">
+        <id property="sid" column="sid"/>
+        <result property="sname" column="sname"/>
+        <result property="course" column="cname"/>
+        <result property="score" column="score"/>
+    </resultMap>
+
+    <!--    通过学生id查询成绩信息-->
+    <select id="listAllScoreById" resultMap="courseAndScore">
+        select student.*, course.cname, sc.score
+        from student
+        left join sc on student.sid = sc.sid
+        left join course on sc.cid = course.cid
+        where student.sid = #{sid}
+    </select>
+</mapper>

@@ -180,7 +180,7 @@ package statement.xml.com.dao;
  */
 public interface AccountDao {
     // 添加用户
-    public void addUser(String user, int money);
+    public void addUser(String student, int money);
     // 汇款
     public void out(String outUser, int money);
     // 收款
@@ -213,23 +213,23 @@ public class AccountDaoImpl implements AccountDao{
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public void addUser(String user, int money) {
+    public void addUser(String student, int money) {
         // 添加账户
         String sql = "insert into bank_account values(null, ?,?)";
-        this.jdbcTemplate.update(sql, user, money);
+        this.jdbcTemplate.update(sql, student, money);
     }
 
     @Override
     public void out(String outUser, int money) {
         // 汇款的实现方法
-        String sql = "update bank_account set money = money - ? where user =?";
+        String sql = "update bank_account set money = money - ? where student =?";
         this.jdbcTemplate.update(sql, money, outUser);
     }
 
     @Override
     public void in(String inUser, int money) {
         // 收款的实现方法
-        String sql = "update bank_account set money = money + ? where user =?";
+        String sql = "update bank_account set money = money + ? where student =?";
         this.jdbcTemplate.update(sql, money, inUser);
     }
 }
@@ -462,14 +462,14 @@ public class TAccountDaoImpl implements TAccountDao {
     @Override
     public void out(String outUser, int money) {
         // 汇款的实现方法
-        String sql = "update bank_account set money = money - ? where user =?";
+        String sql = "update bank_account set money = money - ? where student =?";
         this.jdbcTemplate.update(sql, money, outUser);
     }
 
     @Override
     public void in(String inUser, int money) {
         // 收款的实现方法
-        String sql = "update bank_account set money = money + ? where user =?";
+        String sql = "update bank_account set money = money + ? where student =?";
         this.jdbcTemplate.update(sql, money, inUser);
     }
 }

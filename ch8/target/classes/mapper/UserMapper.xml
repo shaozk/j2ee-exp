@@ -17,22 +17,22 @@
     </resultMap>
 
     <insert id="addUser" parameterType="pojo.MUser">
-        insert into user (user_name, user_sex, user_birthday, user_photo, user_resume) values (#{userName}, #{userSex}, #{userBirthday}, #{userPhoto}, #{userResume})
+        insert into student (user_name, user_sex, user_birthday, user_photo, user_resume) values (#{userName}, #{userSex}, #{userBirthday}, #{userPhoto}, #{userResume})
     </insert>
     <update id="updateUser" parameterType="pojo.MUser">
-        update user set user_name=#{userName},user_sex = #{userSex}, user_birthday=#{userBirthday}, user_photo=#{userPhoto}, user_resume=#{userResume} where user_id = #{userID}
+        update student set user_name=#{userName},user_sex = #{userSex}, user_birthday=#{userBirthday}, user_photo=#{userPhoto}, user_resume=#{userResume} where user_id = #{userID}
     </update>
     <delete id="deleteUser" parameterType="int">
-        delete from user where user_id = #{id}
+        delete from student where user_id = #{id}
     </delete>
     <select id="queryUserById" parameterType="Integer" resultType="pojo.MUser" resultMap="ResultMap">
-        select * from user where user_id = #{user_id}
+        select * from student where user_id = #{user_id}
     </select>
     <select id="queryAllUser" resultType="pojo.MUser" resultMap="ResultMap">
-        select * from user
+        select * from student
     </select>
     <select id="queryUserByName" parameterType="String" resultType="pojo.MUser" resultMap="ResultMap">
-        select * from user where user_name = #{name}
+        select * from student where user_name = #{name}
     </select>
 
 

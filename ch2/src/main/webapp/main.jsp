@@ -5,6 +5,6 @@
     <title>小春论坛</title>
 </head>
 <body>
-${user.userName}admin,欢迎您进入小春论坛，您当前积分为60${user.credits};
+${student.userName}admin,欢迎您进入小春论坛，您当前积分为60${student.credits};
 </body>
 </html>
