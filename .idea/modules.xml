@@ -6,8 +6,15 @@
       <module fileurl="file://$PROJECT_DIR$/ch10/ch10.iml" filepath="$PROJECT_DIR$/ch10/ch10.iml" />
       <module fileurl="file://$PROJECT_DIR$/../j2ee-demo/ch10_1/ch10_1.iml" filepath="$PROJECT_DIR$/../j2ee-demo/ch10_1/ch10_1.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch/ch11/ch11.iml" filepath="$PROJECT_DIR$/ch/ch11/ch11.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../j2ee-demo/ch11_1/ch11_1.iml" filepath="$PROJECT_DIR$/../j2ee-demo/ch11_1/ch11_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../j2ee-demo/ch11_2/ch11_2.iml" filepath="$PROJECT_DIR$/../j2ee-demo/ch11_2/ch11_2.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch12/ch12.iml" filepath="$PROJECT_DIR$/ch12/ch12.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../j2ee-demo/ch12_1/ch12_1.iml" filepath="$PROJECT_DIR$/../j2ee-demo/ch12_1/ch12_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../j2ee-demo/ch12_2/ch12_2.iml" filepath="$PROJECT_DIR$/../j2ee-demo/ch12_2/ch12_2.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch13/ch13.iml" filepath="$PROJECT_DIR$/ch13/ch13.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../j2ee-demo/ch13_3/ch13_3.iml" filepath="$PROJECT_DIR$/../j2ee-demo/ch13_3/ch13_3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../j2ee-demo/ch14_1/ch14_1.iml" filepath="$PROJECT_DIR$/../j2ee-demo/ch14_1/ch14_1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../j2ee-demo/ch14_3/ch14_3.iml" filepath="$PROJECT_DIR$/../j2ee-demo/ch14_3/ch14_3.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch2/ch2.iml" filepath="$PROJECT_DIR$/ch2/ch2.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch3/ch3.iml" filepath="$PROJECT_DIR$/ch3/ch3.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch4/ch4.iml" filepath="$PROJECT_DIR$/ch4/ch4.iml" />
@@ -19,6 +26,7 @@
       <module fileurl="file://$PROJECT_DIR$/ch6/ch6.iml" filepath="$PROJECT_DIR$/ch6/ch6.iml" />
       <module fileurl="file://$PROJECT_DIR$/../j2ee-demo/ch6_1/ch6_1.iml" filepath="$PROJECT_DIR$/../j2ee-demo/ch6_1/ch6_1.iml" />
       <module fileurl="file://$PROJECT_DIR$/../j2ee-demo/ch6_2/ch6_2.iml" filepath="$PROJECT_DIR$/../j2ee-demo/ch6_2/ch6_2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../j2ee-demo/ch6_3/ch6_3.iml" filepath="$PROJECT_DIR$/../j2ee-demo/ch6_3/ch6_3.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch8/ch8.iml" filepath="$PROJECT_DIR$/ch8/ch8.iml" />
       <module fileurl="file://$PROJECT_DIR$/ch9/ch9.iml" filepath="$PROJECT_DIR$/ch9/ch9.iml" />
       <module fileurl="file://$PROJECT_DIR$/../j2ee-demo/ch9_2/ch9_2.iml" filepath="$PROJECT_DIR$/../j2ee-demo/ch9_2/ch9_2.iml" />

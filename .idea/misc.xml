@@ -5,6 +5,14 @@
     <file type="javaeeApplication" url="file://$PROJECT_DIR$/ch13/ear" />
     <file type="web" url="file://$PROJECT_DIR$/../ch13" />
     <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch10_1" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch11_1" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch11_2" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch12_1" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch12_2" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch13_3" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch14_1" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch14_2" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch14_3" />
     <file type="web" url="file://$PROJECT_DIR$/ch/ch11" />
     <file type="web" url="file://$PROJECT_DIR$/ch12" />
     <file type="web" url="file://$PROJECT_DIR$/ch13" />
@@ -36,6 +44,15 @@
         <option value="$PROJECT_DIR$/ch/ch11/pom.xml" />
         <option value="$PROJECT_DIR$/../j2ee-demo/ch10_1/pom.xml" />
         <option value="$PROJECT_DIR$/ch13/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch11_1/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch11_2/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch12_1/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch12_2/pom.xml" />
+        <option value="$PROJECT_DIR$/../ch13_3/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch14_1/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch13_3/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch6_3/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch14_3/pom.xml" />
       </list>
     </option>
   </component>

@@ -24,6 +24,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-test:4.2.2.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.jetbrains:annotations:21.0.0" level="project" />
+    <orderEntry type="library" name="Maven: org.jetbrains:annotations:21.0.1" level="project" />
   </component>
 </module>
