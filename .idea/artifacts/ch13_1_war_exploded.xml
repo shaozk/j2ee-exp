@@ -1,17 +1,17 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="ch13_3:war exploded">
-    <output-path>$PROJECT_DIR$/../j2ee-demo/ch13_3/target/ch13_3</output-path>
+  <artifact type="exploded-war" name="ch13_1:war exploded">
+    <output-path>$PROJECT_DIR$/../j2ee-demo/ch13_1/target/ch13_1</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
-        <module>ch13_3</module>
+        <module>ch13_1</module>
         <packaging>war</packaging>
       </options>
     </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="ch13_3" />
+          <element id="module-output" name="ch13_1" />
         </element>
         <element id="directory" name="lib">
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.2.RELEASE" />
@@ -27,9 +27,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/../j2ee-demo/ch13_3/target/ch13_3/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/../j2ee-demo/ch13_1/target/ch13_1/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="ch13_3/web/Web" />
+      <element id="javaee-facet-resources" facet="ch13_1/web/Web" />
     </root>
   </artifact>
 </component>

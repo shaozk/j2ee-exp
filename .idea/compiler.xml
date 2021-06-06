@@ -30,9 +30,18 @@
         <module name="ch11_2" />
         <module name="ch12_1" />
         <module name="ch12_2" />
+        <module name="ch13_1" />
         <module name="ch14_1" />
+        <module name="ch13_2" />
         <module name="ch13_3" />
+        <module name="ch15_1" />
         <module name="ch14_3" />
+        <module name="ch13_4" />
+        <module name="ch16_1" />
+        <module name="ch16_2" />
+        <module name="ch17_1" />
+        <module name="ch17_2" />
+        <module name="ch17_3" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -44,11 +53,21 @@
       <module name="ch12" target="1.7" />
       <module name="ch12_1" target="1.7" />
       <module name="ch12_2" target="1.7" />
+      <module name="ch12_3" target="1.7" />
       <module name="ch13" target="1.7" />
+      <module name="ch13_1" target="1.7" />
+      <module name="ch13_2" target="1.7" />
       <module name="ch13_3" target="1.7" />
+      <module name="ch13_4" target="1.7" />
       <module name="ch14_1" target="1.7" />
       <module name="ch14_2" target="1.7" />
       <module name="ch14_3" target="1.7" />
+      <module name="ch15_1" target="1.7" />
+      <module name="ch16_1" target="1.7" />
+      <module name="ch16_2" target="1.7" />
+      <module name="ch17_1" target="1.7" />
+      <module name="ch17_2" target="1.7" />
+      <module name="ch17_3" target="1.7" />
       <module name="ch2" target="8" />
       <module name="ch3" target="1.7" />
       <module name="ch4" target="8" />

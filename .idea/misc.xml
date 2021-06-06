@@ -9,10 +9,20 @@
     <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch11_2" />
     <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch12_1" />
     <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch12_2" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch12_3" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch13_1" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch13_2" />
     <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch13_3" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch13_4" />
     <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch14_1" />
     <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch14_2" />
     <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch14_3" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch15_1" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch16_1" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch16_2" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch17_1" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch17_2" />
+    <file type="web" url="file://$PROJECT_DIR$/../j2ee-demo/ch17_3" />
     <file type="web" url="file://$PROJECT_DIR$/ch/ch11" />
     <file type="web" url="file://$PROJECT_DIR$/ch12" />
     <file type="web" url="file://$PROJECT_DIR$/ch13" />
@@ -53,6 +63,16 @@
         <option value="$PROJECT_DIR$/../j2ee-demo/ch13_3/pom.xml" />
         <option value="$PROJECT_DIR$/../j2ee-demo/ch6_3/pom.xml" />
         <option value="$PROJECT_DIR$/../j2ee-demo/ch14_3/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch13_1/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch13_2/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch13_4/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch15/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch15_1/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch16_1/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch16_2/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch17_1/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch17_2/pom.xml" />
+        <option value="$PROJECT_DIR$/../j2ee-demo/ch17_3/pom.xml" />
       </list>
     </option>
   </component>
